@@ -32,10 +32,6 @@
 * TDD
   * DEMO: power
   * DEMO: doubleAll
-* CI/CD
-  * Continuous Integration
-  * Continuous Deployment
-  * Travis as a task runner
 * Functions
   * A few ways to declare function
     * `function` declaration

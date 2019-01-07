@@ -1,5 +1,16 @@
-function power(n, exp) {
-  return n ** exp;
+function powerDeclared(n, exponent) {
+  // return Math.pow(n, exponent);
+  return n ** exponent;
 }
 
-module.exports = power;
+const powerExpressed = function(n, exponent) {
+  return n ** exponent;
+};
+
+const powerArrow = (n, exponent) => n ** exponent;
+
+module.exports = {
+  powerDeclared,
+  powerExpressed,
+  powerArrow
+};

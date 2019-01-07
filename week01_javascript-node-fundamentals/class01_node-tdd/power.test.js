@@ -1,15 +1,15 @@
-const power = require('./power');
+const {
+  powerDeclared,
+  powerExpressed,
+  powerArrow
+} = require('./power');
 
 describe('power function', () => {
-  it('2 to the power of 2', () => {
-    expect(power(2, 2)).toEqual(4);
+  it('can raise the number 2 to the power of 2', () => {
+    expect(powerDeclared(2, 2)).toEqual(4);
   });
 
-  test('3 to the power of 2', () => {
-    expect(power(3, 2)).toEqual(9);
+  it('can raise 3 to the power of 4', () => {
+    expect(powerExpressed(3, 4)).toEqual(81);
   });
-
-  test('3 to the power of 3', () => {
-    expect(power(3, 3)).toEqual(27);
-  });
-})
+});

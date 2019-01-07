@@ -1,17 +1,18 @@
 {
   "name": "class01_node-tdd",
   "version": "1.0.0",
-  "description": "## Agenda",
-  "main": "power.js",
+  "description": "## Readings and Resources",
+  "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "jest --watch",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^5.10.0",
+    "eslint": "^5.12.0",
     "jest": "^23.6.0"
   }
 }

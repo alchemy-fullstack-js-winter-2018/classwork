@@ -1,3 +1,5 @@
-module.exports = arr => {
-  return arr.map(item => item * 2);
-};
+function double(n) {
+  return n * 2;
+}
+
+module.exports = double;
