@@ -1,0 +1,17 @@
+{
+  "name": "class01_node-tdd",
+  "version": "1.0.0",
+  "description": "## Agenda",
+  "main": "power.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.10.0",
+    "jest": "^23.6.0"
+  }
+}
