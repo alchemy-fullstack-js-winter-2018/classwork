@@ -9,9 +9,6 @@
 ## Agenda
 
 * Lab review
-  * `map`
-  * `reduce`
-  * `forEach`
 * Array Methods
   * `find`
   * `splice`
@@ -31,7 +28,6 @@
   * constructor
   * static vs instance methods
   * extending classes
-  * DEMO: CoolStringifier
   * EXERCISE: cat class
 * JavaScript Errors
   * messaging
