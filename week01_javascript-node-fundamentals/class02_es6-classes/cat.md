@@ -1,6 +1,6 @@
 # Create a cat class
 
-* Create a cat class that extends the `Animal` class
+* Create a cat class that extends the `AnimalClass` class
 
 
 ## NEXT
@@ -12,14 +12,14 @@
 ## AND THEN
 
 * Create a description static method that
-  describes what a cat is.
+  describes what a Cat is.
 
 ## FINALLY
 
 * Test that an error is thrown by your
   `description` method. (write test first)
 * Create `description` static method on the
-  `Animal` class.
+  `AnimalClass` class.
 * `description` should throw an error. (it
   is the job of the extending class to
   implement description)

@@ -21,8 +21,18 @@ class AnimalClass {
     this.species = species;
   }
 
+  static description() {
+    throw 'You are required to implement the description method';
+  }
+
   speak() {
     return `My name is ${this.name} and I am a ${this.species}`;
+  }
+}
+
+class Dog extends AnimalClass {
+  constructor(name) {
+    super(name, 'dog');
   }
 }
 

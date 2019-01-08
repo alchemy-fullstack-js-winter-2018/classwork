@@ -24,6 +24,14 @@ describe('animal creators', () => {
       const animal = new AnimalClass('fluffy', 'cat');
       expect(animal.speak()).toEqual('My name is fluffy and I am a cat');
     });
+
+    it('description throws an error', () => {
+      try {
+        expect(AnimalClass.description()).toThrowError();
+      } catch(error) {
+        expect(error).toEqual('You are required to implement the description method');
+      }
+    });
   });
 
   it('implements all three creators the same', () => {
