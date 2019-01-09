@@ -7,17 +7,27 @@ function readJSON(pathToFile, callback) {
     }
 
     // JSON.parse to create a JSON object from data
-    const json = JSON.parse(data);
-    // invoke callback(null, json)
-
-    callback(null, json)
+    try {
+      const json = JSON.parse(data);
+      // invoke callback(null, json)
+      callback(null, json)
+    } catch (e) {
+      callback(e)
+    }
   });
 }
 
 function writeJSON(pathToFile, obj, callback) {
-  // JSON.stringify my obj
-  // fs.writeFile to write file to disk
-  // invoke callback
+  try {
+    // JSON.stringify my obj
+    const strObject = JSON.stringify(obj);
+    // fs.writeFile to write file to disk
+    fs.writeFile(pathToFile, strObject, err => {
+      callback(err)
+    });
+  } catch (e) {
+    callback(e)
+  }
 }
 
 module.exports = {
