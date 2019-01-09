@@ -25,6 +25,16 @@ describe('jsonFs', () => {
         });
       });
     });
+
+    it('fails if the file does not contain JSON', done => {
+      fs.writeFile('./testData/testNotJSON', 'tenoahusenothu', err => {
+        expect(err).toBeFalsy();
+        readJSON('./testData/testNotJSON', (err, json) => {
+          expect(err).toBeTruthy();
+          done();
+        })
+      })
+    });
   });
 
   describe('writeJSON', () => {
