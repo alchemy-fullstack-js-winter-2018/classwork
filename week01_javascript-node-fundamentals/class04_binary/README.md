@@ -4,4 +4,5 @@
 
 * Lab Review
 * Event Emitter
+* Buffer
 * Binary Data

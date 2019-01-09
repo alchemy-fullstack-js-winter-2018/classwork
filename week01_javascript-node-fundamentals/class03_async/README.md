@@ -7,16 +7,13 @@
 ## Agenda
 
 * Lab Review
-  * `create`
-  * `find`
-  * `drop`
 * Node Event Loop
   * What is a thread?
     * instruction that the operating system (OS) can
       run
     * Allegory: thread with rings
   * What is a callback?
-    * a function that gets invoked after in response
+    * a function that gets invoked in response
       to an event
     * Analogy: restaurant queue
   * Node is single threaded?!?

@@ -13,19 +13,27 @@ class MemoryDatabase {
   }
 
   findById(_id) {
-    const obj = this.store[_id];
-    // if(!obj) {
-    //   throw `No object with _id ${_id}`;
-    // } else {
-    //   return obj;
-    // }
-
-    if(!obj) {
+    if(!this.exists(_id)) {
       throw `No object with _id ${_id}`;
     }
 
-    return obj;
+    return this.store[_id];
   }
+
+  findByIdAndUpdate(_id, newObj) {
+    if(!this.exists(_id)) {
+      throw `No object with _id ${_id}`;
+    }
+
+    const objToUpdateWith = { ...newObj, _id };
+    this.store[_id] = objToUpdateWith;
+    return objToUpdateWith;
+  }
+
+  exists(_id) {
+    return !!this.store[_id];
+  }
+
 }
 
 
