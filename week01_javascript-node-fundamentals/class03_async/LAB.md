@@ -1,4 +1,4 @@
-Simple Database
+File Database
 ===
 
 Build a simple object database that stores and retrieves objects from the file system.

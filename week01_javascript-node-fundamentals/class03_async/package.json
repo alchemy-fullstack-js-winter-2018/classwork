@@ -12,10 +12,12 @@
   "license": "ISC",
   "devDependencies": {
     "eslint": "^5.10.0",
-    "eslintrc": "^1.0.6",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.3"
   },
   "dependencies": {
+    "shortid": "^2.2.14",
     "superagent": "^4.1.0"
   }
 }
