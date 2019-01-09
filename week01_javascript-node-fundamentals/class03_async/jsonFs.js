@@ -14,6 +14,13 @@ function readJSON(pathToFile, callback) {
   });
 }
 
+function writeJSON(pathToFile, obj, callback) {
+  // JSON.stringify my obj
+  // fs.writeFile to write file to disk
+  // invoke callback
+}
+
 module.exports = {
-  readJSON
+  readJSON,
+  writeJSON
 };

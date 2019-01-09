@@ -1,5 +1,8 @@
 const fs = require('fs');
-const { readJSON } = require('./jsonFs');
+const {
+  readJSON,
+  writeJSON
+} = require('./jsonFs');
 
 describe('jsonFs', () => {
   describe('readJSON', () => {
@@ -27,9 +30,20 @@ describe('jsonFs', () => {
   describe('writeJSON', () => {
     it('writes JSON to disk', done => {
       // create an object to save const obj = { name: 'ryan' }
+      const obj = { name: 'ryan' };
+
       // invoke writeJSON(pathToFile, obj, err => {})
-      // inside callback use readJSON to verify write
-      // call done
+      writeJSON('./testData/testWrite', obj, err => {
+        expect(err).toBeFalsy();
+        // inside callback use readJSON to verify write
+        readJSON('./testData/testWrite', (err, data) => {
+          expect(err).toBeFalsy();
+          expect(data).toEqual(obj);
+          done();
+          // call done
+        });
+
+      });
     });
   })
 });
