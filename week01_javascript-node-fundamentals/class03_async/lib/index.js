@@ -69,6 +69,21 @@ class Store {
     // -> return callback(err, { deleted: 0 })
   }
 
+  findByIdAndUpdate(_id, updatedObject, callback) {
+    // this.findById
+    this.findById(_id, err => {
+      // -> is there something to update??
+      if (err) return callback(err);
+      // -> fs.writeFile
+      const objToWrite = { ...updatedObject, _id };
+      const objToWriteStr = JSON.stringify(objToWrite);
+      fs.writeFile(this.storedFilePath(_id), objToWriteStr, err => {
+        // -> -> invoke callback
+        callback(err, objToWrite)
+      });
+    });
+  }
+
   storedFilePath(_id) {
     return `${this.rootDir}/${_id}`
   }
