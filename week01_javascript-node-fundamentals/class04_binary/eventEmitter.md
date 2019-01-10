@@ -27,8 +27,8 @@
 * require EventEmitter
   * `const EventEmitter = require('events');`
 * create a `const ee = new EventEmitter()`
-* listen to an event (e.g. `ee.on('we did it with data', date => {})`)
-  * handle the event with a callback that `console.log(date)`
+* listen to an event (e.g. `ee.on('we did it with data', data => {})`)
+  * handle the event with a callback that `console.log(data)`
 * emit the `we did it with data` event with `ee.emit`
   * NOTE: You need to send data!
 
@@ -38,7 +38,7 @@
 * require EventEmitter
   * `const EventEmitter = require('events');`
 * create a `const ee = new EventEmitter()`
-* listen to an event (e.g. `ee.on('letter', date => {})`)
+* listen to an event (e.g. `ee.on('letter', data => {})`)
   * handle the event with a callback prints "RECEIVED: ${letter}"
 * iterate through the letters in a string and emit `forEach` letter
   * HINT: You'll need to use `split('')` and `forEach`
