@@ -41,4 +41,20 @@ describe('Store', () => {
       });
     });
   });
+
+  it('find all objects tracked by the store', () => {
+    // create a bunch of objects (at least 5)
+    //  create ->
+    //    create ->
+    //      create ->
+    //        create ->
+    //          create ->
+    //            find ->
+    //              write our real tests (our expects)
+    //              expect an array with 5 items
+    //              expect an array containing the first item
+    //              expect an array containing the second item
+    //              .... to 5
+    //              done()
+  });
 })
