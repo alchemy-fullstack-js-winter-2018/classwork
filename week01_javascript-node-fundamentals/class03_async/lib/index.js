@@ -36,8 +36,26 @@ class Store {
   }
 
   find(callback) {
-    // fs.readdir list of files in directory
-    // for each file we can call findById
+    // fs.readdir -> list of files -> list of _id
+    // -> forEach _id in listOfFiles call this.findById
+    // keep a count of returned callbacks
+    fs.readdir(this.rootDir, (err, listOfIds) => {
+      // keep a count of the number of times findById has returned
+      let count = listOfIds.length;
+      if (count < 1) return callback(err, []);
+
+      const items = []
+      listOfIds.forEach(_id => {
+        this.findById(_id, (err, item) => {
+          // -> decrement count
+          count--;
+          // -> push the item to items
+          items.push(item);
+          // -> if count === 0 return callback(null, items)
+          if (count === 0) callback(null, items);
+        });
+      })
+    })
   }
 
   storedFilePath(_id) {
