@@ -58,6 +58,17 @@ class Store {
     })
   }
 
+  findByIdAndDelete(_id, callback) {
+    // fs.unlink(this.storedFilePath(_id), callback)
+    fs.unlink(this.storedFilePath(_id), err => {
+      //  -> callback(err, { deleted: 1 })
+      callback(err, { deleted: 1 });
+    });
+
+    // BONUS: what if the file doesn't exist?????
+    // -> return callback(err, { deleted: 0 })
+  }
+
   storedFilePath(_id) {
     return `${this.rootDir}/${_id}`
   }
