@@ -56,6 +56,19 @@
 * add a listener to the `end` event
   * `console.log` 'Client disconnected'
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Improved Client
 
 * lookup the `readline` node API
@@ -71,3 +84,8 @@
   * create a new `prompt`
   * for each new line `write` the line to the client and
     then reprint the `prompt`
+
+* Make server echo data sent to it by client
+  * Client should receive back ("ECHO: ${data}")
+* Keep track of clients. Give each client a unique name
+  * Client should receive back "ECHO ${clientName}: ${data}"
