@@ -1,17 +1,21 @@
-const bodyParser = require('./bodyParser');
 const { parse } = require('url');
-
-let noteId = 0;
-const notes = {};
+const { getCharacter } = require('./service/rickAndMortyApi');
 
 module.exports = (req, res) => {
   const url = parse(req.url, true);
-  if(req.method === 'POST' && url.pathname === '/note') {
-    bodyParser(req)
-      .then(body => {
-        notes[noteId++] = body;
-        res.statusCode = 204;
-        res.end();
+  if(url.pathname.includes('/character/')) {
+    // get id of character
+    // split on /
+    // [character, :id]
+    const id = url.pathname.slice(1).split('/')[1];
+    getCharacter(id)
+      .then(character => {
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(character));
+      })
+      .catch(err => {
+        res.statusCode = 500;
+        res.end(`Error ${err}`);
       });
   }
 };

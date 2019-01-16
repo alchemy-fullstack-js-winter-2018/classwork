@@ -103,3 +103,4 @@
 
 * use `jest.mock` to mock your `rickAndMortyApi.js`
   * Use `Promise.resolve` to return a promise that resolves with some data
+
