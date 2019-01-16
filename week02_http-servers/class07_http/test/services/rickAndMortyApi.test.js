@@ -1,4 +1,4 @@
-const { getCharacter } = require('./rickAndMortyApi');
+const { getCharacter } = require('../../lib/service/rickAndMortyApi');
 
 describe('rick and morty service', () => {
   it('gets a character by id', () => {
