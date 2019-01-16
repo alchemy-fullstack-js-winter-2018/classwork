@@ -10,6 +10,19 @@ const getCharacter = id => {
     }));
 };
 
+const getCharacters = () => {
+  return request
+    .get('https://rickandmortyapi.com/api/character')
+    .then(res => {
+      return res.body.results.map(char => ({
+        name: char.name,
+        status: char.status,
+        species: char.species
+      }));
+    });
+};
+
 module.exports = {
-  getCharacter
+  getCharacter,
+  getCharacters
 };
