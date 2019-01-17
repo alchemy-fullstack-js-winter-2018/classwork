@@ -59,8 +59,19 @@ describe('app tests', () => {
 
   it('gets a person by id', () => {
     return createPerson('ryan')
-      .then(personWhoWasCreated => {
-        const id = personWhoWasCreated._id;
+      .then(({ _id }) => {
+        return Promise.all([
+          Promise.resolve(_id),
+          request(app).get(`/people/${_id}`)
+        ]);
+      })
+      .then(([_id, { body }]) => {
+        expect(body).toEqual({
+          name: 'ryan',
+          age: 100,
+          favoriteColor: 'red',
+          _id
+        });
       });
   });
 });
