@@ -20,7 +20,7 @@
 ## routing people
 
 * split out routing logic into
-  `lib/routing/people.js`
+  `lib/routes/people.js`
 * your exported function should take req and
   res.
   * attach the body to the req

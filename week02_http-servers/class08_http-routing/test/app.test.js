@@ -74,4 +74,33 @@ describe('app tests', () => {
         });
       });
   });
+
+  it('updates a person by id', () => {
+    return createPerson('ryan')
+      .then(({ _id }) => {
+        return Promise.all([
+          Promise.resolve(_id),
+          request(app).put(`/people/${_id}`).send({ name: 'ryan', age: 1000, favoriteColor: 'blue' })
+        ]);
+      })
+      .then(([_id, { body }]) => {
+        expect(body).toEqual({
+          name: 'ryan',
+          age: 1000,
+          favoriteColor: 'blue',
+          _id
+        });
+      });
+  });
+
+  it('deletes a person by id', () => {
+    return createPerson('ryan')
+      .then(({ _id }) => {
+        return request(app)
+          .delete(`/people/${_id}`);
+      })
+      .then(({ body }) => {
+        expect(body).toEqual({ deleted: 1 });
+      });
+  });
 });

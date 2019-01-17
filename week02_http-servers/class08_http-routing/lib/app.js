@@ -1,6 +1,7 @@
-const People = require('./models/People');
-const bodyParser = require('./bodyParser');
+const peopleRoutes = require('./routes/people');
 const { parse } = require('url');
+
+
 
 module.exports = (req, res) => {
   res.send = json => res.end(JSON.stringify(json));
@@ -14,28 +15,12 @@ module.exports = (req, res) => {
   };
 
   const url = parse(req.url, true);
-
   res.setHeader('Content-Type', 'application/json');
-
-  if(req.method === 'POST' && url.pathname === '/people') {
-    bodyParser(req)
-      .then(body => {
-        People.create({
-          name: body.name,
-          age: body.age,
-          favoriteColor: body.favoriteColor
-        }, (err, createdPerson) => {
-          res.sendWithError(res, err, createdPerson);
-        });
-      });
-  } else if(req.method === 'GET' && url.pathname === '/people') {
-    People.find((err, listOfPeople) => {
-      res.sendWithError(err, listOfPeople);
-    });
-  } else if(req.method === 'GET' && url.pathname.includes('/people/')) {
-    const _id = url.pathname.slice(1).split('/')[1];
-    People.findById(_id, (err, person) => {
-      res.sendWithError(err, person);
-    });
+  if(url.pathname.includes('/people')) {
+    return peopleRoutes(req, res);
+  } else if(url.pathname.includes('/tweets')) {
+    return tweetsRoutes(req, res);
+  } else {
+    notFound(req, res);
   }
 };
