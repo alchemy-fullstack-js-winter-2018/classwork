@@ -18,5 +18,9 @@ module.exports = (req, res) => {
           res.end(JSON.stringify(createdPerson));
         });
       });
-  } else if()
+  } else if(req.method === 'GET' && url.pathname === '/people') {
+    People.find((err, listOfPeople) => {
+      res.end(JSON.stringify(listOfPeople));
+    });
+  }
 };
