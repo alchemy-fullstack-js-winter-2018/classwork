@@ -2,7 +2,7 @@ module.exports = req => {
   return new Promise((resolve, reject) => {
     // check if method is GET
     // if method is GET resolve with empty body
-    if(req.method === 'GET') {
+    if(req.method === 'GET' || req.method === 'DELETE') {
       return resolve();
     }
 
