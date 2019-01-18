@@ -19,3 +19,12 @@ const A = {
     data: 'A',
     children: [B, C]
 };
+
+function depthFirst(node, depth = 0) {
+    console.log('  '.repeat(depth), node.data);
+    node.children.forEach(child => {
+        depthFirst(child, depth + 1);
+    });
+}
+
+depthFirst(A);
