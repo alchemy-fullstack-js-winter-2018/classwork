@@ -103,4 +103,13 @@ describe('app tests', () => {
         expect(body).toEqual({ deleted: 1 });
       });
   });
+
+  it('404 when a route is not found', () => {
+    return request(app)
+      .get('/notHere')
+      .then(res => {
+        expect(res.status).toEqual(404);
+        expect(res.body).toEqual({ error: 'Not Found' });
+      });
+  });
 });

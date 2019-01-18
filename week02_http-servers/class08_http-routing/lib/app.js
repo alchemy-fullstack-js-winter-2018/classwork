@@ -1,6 +1,6 @@
-const peopleRoutes = require('./routes/people');
 const { parse } = require('url');
-
+const peopleRoutes = require('./routes/people');
+const notFound = require('./routes/notFound');
 
 
 module.exports = (req, res) => {
@@ -18,8 +18,6 @@ module.exports = (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   if(url.pathname.includes('/people')) {
     return peopleRoutes(req, res);
-  } else if(url.pathname.includes('/tweets')) {
-    return tweetsRoutes(req, res);
   } else {
     notFound(req, res);
   }
