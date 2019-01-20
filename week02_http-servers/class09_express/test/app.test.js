@@ -1,12 +1,35 @@
+const mkdirp = require('mkdirp');
+const rimraf = require('rimraf');
 const request = require('supertest');
 const app = require('../lib/app');
 
 describe('tweets', () => {
-  it('gets a tweet', () => {
+  beforeEach(done => {
+    rimraf('./data/people', err => {
+      done(err);
+    });
+  });
+
+  beforeEach(done => {
+    mkdirp('./data/people', err => {
+      done(err);
+    });
+  });
+
+  it('creates a new tweet', () => {
     return request(app)
-      .get('/tweets/abcd')
+      .post('/tweets')
+      .send({ handle: 'ryan', text: 'my first tweet' })
       .then(res => {
-        expect(res.text).toEqual('abcd');
+        expect(res.body).toEqual({
+          handle: 'ryan',
+          text: 'my first tweet',
+          _id: expect.any(String)
+        });
       });
+  });
+
+  it('gets a list of tweets', () => {
+
   });
 });

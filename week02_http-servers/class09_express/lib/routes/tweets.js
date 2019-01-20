@@ -1,10 +1,21 @@
 const { Router } = require('express');
+const Tweet = require('../models/Tweet');
 
 module.exports = Router()
-  .get('/:name', (req, res) => {
-    console.log(req.params);
-    res.end(req.params.name);
+  .post('/', (req, res) => {
+    const { handle, text } = req.body;
+    Tweet.create({
+      handle,
+      text
+    }, (err, createdTweet) => {
+      res.send(createdTweet);
+    });
   })
+
   .get('/', (req, res) => {
-    res.end('root');
+
+  })
+
+  .put('/:id', (req, res) => {
+
   });

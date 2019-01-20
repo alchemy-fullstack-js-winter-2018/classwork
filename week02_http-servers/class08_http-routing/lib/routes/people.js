@@ -1,18 +1,29 @@
 const People = require('../models/People');
 const notFound = require('./notFound');
+const { getCharacter } = require('../services/starWarsApi');
 
 const post = (req, res) => {
-  People.create({
-    name: req.body.name,
-    age: req.body.age,
-    favoriteColor: req.body.favoriteColor
-  }, (err, createdPerson) => {
-    res.sendWithError(err, createdPerson);
-  });
+  const {
+    name,
+    age,
+    favoriteColor,
+    favoriteCharacterId
+  } = req.body;
+  getCharacter(favoriteCharacterId)
+    .then(favoriteCharacter => {
+      People.create({
+        name,
+        age,
+        favoriteColor,
+        favoriteCharacter
+      }, (err, createdPerson) => {
+        res.sendWithError(err, createdPerson);
+      });
+    });
 };
 
 const get = (req, res) => {
-  if(!req.id) {
+  if (!req.id) {
     People.find((err, listOfPeople) => {
       res.sendWithError(err, listOfPeople);
     });
