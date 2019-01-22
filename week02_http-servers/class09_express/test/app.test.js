@@ -66,6 +66,15 @@ describe('tweets', () => {
       });
   });
 
+  it('errors when there is no tweet with an id', () => {
+    return request(app)
+      .get('/tweets/badId')
+      .then(res => {
+        expect(res.status).toEqual(400);
+        expect(res.body).toEqual({ error: 'Bad Id: badId' });
+      });
+  });
+
   it('can update a tweet', () => {
     return createTweet('a twet')
       .then(tweet => {

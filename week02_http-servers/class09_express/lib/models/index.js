@@ -25,6 +25,7 @@ class Store {
     // readJSON
     // fs.readFile to read the this.rootDir + / + ${_id} file
     fs.readFile(this.storedFilePath(_id), { encoding: 'utf8' }, (err, data) => {
+      if(err) return callback(err);
       // JSON.parse to turn string into object
       try {
         const obj = JSON.parse(data);
