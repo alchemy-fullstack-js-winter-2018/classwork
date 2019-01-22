@@ -102,7 +102,7 @@ Tweet
   * `MONGODB_URI=mongodb://127.0.0.1:27017/DATABASE_NAME`
 * create a `lib/utils/connect.js`
 * export a function that takes a `dbUri`
-  * `dbUrl` should default to `process.env.MONGODB_URI`
+  * `dbUri` should default to `process.env.MONGODB_URI`
 * connect to MongoDB
   * use `mongoose.connect` to connect to mongodb
 * listen to `error` events
