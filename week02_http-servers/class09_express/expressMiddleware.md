@@ -85,3 +85,16 @@ all other middleware.
   * `if(process.env.NODE_ENV !== 'production')`
     * respond with `{ error: err.message }`
     * `console.log(err)`
+
+## Ron Swanson express middleware
+
+Use the [https://ron-swanson-quotes.herokuapp.com/v2/quotes](https://ron-swanson-quotes.herokuapp.com/v2/quotes) API to get random quotes.
+
+* create a `lib/services/ronSwansonApi.js`
+  * export a function `getRandomQuote(n)` that returns an array of `n` random quotes
+* create a `lib/middleware/ronSwanson.js`
+  * use the `getRandomQuote` service to get **1** random quote
+  * attach the random quote to `req.quote`
+* create a new route `/random` that uses the `ronSwanson` middleware
+  * `app.get('/random', ronSwanson, (req, res) => {})`
+  * respond with the random quote
