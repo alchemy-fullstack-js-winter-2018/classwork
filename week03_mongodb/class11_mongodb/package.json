@@ -1,0 +1,21 @@
+{
+  "name": "class11_mongodb",
+  "version": "1.0.0",
+  "description": "## Agenda",
+  "main": "mongoosePlayground.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^6.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.1"
+  }
+}
