@@ -32,6 +32,7 @@ module.exports = Router()
     const _id = req.params.id;
     Tweet
       .findById(_id)
+      .populate('handle')
       .then(foundTweet => {
         if(!foundTweet) {
           return next(new HttpError(404, `No Tweet found with ${_id}`));

@@ -15,8 +15,12 @@ describe('tweets app', () => {
 
   const createTweet = (handle, text = 'a tweet') => {
     // create user first
-    return Tweet.create({ handle, text })
-      .then(tweet => ({ ...tweet, _id: tweet._id.toString() }));
+    return createUser(handle, 'ryan', 'ryan@email.com')
+      .then(user => {
+        return Tweet.create({ handle: user._id, text })
+          .then(tweet => ({ ...tweet, _id: tweet._id.toString() }));
+      });
+
   };
 
   beforeEach(done => {
@@ -68,7 +72,7 @@ describe('tweets app', () => {
       })
       .then(([_id, res]) => {
         expect(res.body).toEqual({
-          handle: 'ryan',
+          handle: expect.any(Object),
           text: 'a tweet',
           _id,
           __v: 0
