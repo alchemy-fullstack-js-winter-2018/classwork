@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 function redact(uri) {
   const parsedUri = parse(uri);
   const authPart = parsedUri.auth ? '****:****@' : ''
-  return `${parsedUri.protocol}://${authPart}${parsedUri.host}:${parsedUri.port}${parsedUri.path}`
+  return `${parsedUri.protocol}://${authPart}${parsedUri.hostname}:${parsedUri.port}${parsedUri.path}`
 }
 
 function log(event, dbUri) {
