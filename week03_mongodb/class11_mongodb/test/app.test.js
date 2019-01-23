@@ -47,16 +47,27 @@ describe('tweets app', () => {
   it('gets a tweet by id', () => {
     return createTweet('ryan')
       .then(createdTweet => {
-        return request(app)
-          .get(`/tweets/${createdTweet._id}`)
+        return Promise.all([
+          Promise.resolve(createdTweet._id),
+          request(app)
+            .get(`/tweets/${createdTweet._id}`)
+        ])
       })
-      .then(res => {
+      .then(([_id, res]) => {
         expect(res.body).toEqual({
           handle: 'ryan',
           text: 'a tweet',
-          _id: expect.any(String),
+          _id,
           __v: 0
         });
       });
   });
+
+  it('errors when a bad id is sent', () => {
+    return request(app)
+      .get('/tweets/5c479e5d22e69952c13506a8')
+      .then(res => {
+        expect(res.status).toEqual(404);
+      })
+  })
 });

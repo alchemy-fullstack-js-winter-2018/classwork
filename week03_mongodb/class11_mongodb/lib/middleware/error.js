@@ -2,13 +2,13 @@
 const handler = (err, req, res, next) => {
   let code = 500;
   let message = 'Internal Server Error';
-  if(err instanceof HttpError) {
+  if (err instanceof HttpError) {
     code = err.code;
     message = err.message;
-  } else if(err.name === 'CastError' || err.name === 'ValidationError') {
+  } else if (err.name === 'CastError' || err.name === 'ValidationError') {
     code = 400;
     message = err.message;
-  } else if(process.env.NODE_ENV !== 'production') {
+  } else if (process.env.NODE_ENV !== 'production') {
     message = err.message;
     // eslint-disable-next-line no-console
     console.log(err);

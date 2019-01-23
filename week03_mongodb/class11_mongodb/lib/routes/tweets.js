@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const Tweet = require('../models/Tweet');
+const { HttpError } = require('../middleware/error');
 
 module.exports = Router()
   .post('/', (req, res, next) => {
@@ -20,6 +21,11 @@ module.exports = Router()
     const _id = req.params.id;
     Tweet
       .findById(_id)
-      .then(foundTweet => res.send(foundTweet))
+      .then(foundTweet => {
+        if (!foundTweet) {
+          return next(new HttpError(404, `No Tweet found with ${_id}`))
+        }
+        res.send(foundTweet)
+      })
       .catch(next);
   });
