@@ -8,8 +8,11 @@
   },
   "scripts": {
     "start": "nodemon server.js",
-    "test": "jest --verbose",
+    "test": "jest --verbose --runInBand",
     "test:watch": "npm run test -- --watch"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",

@@ -178,7 +178,7 @@ we can use a `populate` to accomplish the same goal.
 
 * create a `lib/middleware/connection.js`
 * require mongoose
-* require the mongoose state object `const state = require('mongoose/lib/connectionstate');`
+* require the mongoose state object `const state = require('mongoose/lib/connection/state');`
 * export a middleware function `(req, res, next) => {}`
   * get the current `mongoose.connection.readyState` from mongoose
   * if the `readyState` is `state.connected` or `state.connecting`
