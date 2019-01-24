@@ -6,7 +6,7 @@
 * create a `lib/models/User.js` file
 * create a test `it('validates a good model', () => { }`
   * create a new user with `const user = new User({ email: 'test@test.com' });`
-  * `expect(user.toJSON()).toEqual({ email: 'test@test.com' })`
+  * `expect(user.toJSON()).toEqual({ _id: ...., email: 'test@test.com' })`
 * create your user model
   * users have an email and non-required passwordHash field
 * create another test `it('has a required email', () => { }`
