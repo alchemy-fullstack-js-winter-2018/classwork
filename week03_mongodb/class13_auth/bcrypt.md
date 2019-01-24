@@ -17,7 +17,7 @@ To encrypt a password we use `bcrypt.hash` which returns a promise.
   * `then` `expect(hashedPassword).toBeDefined()`
   * `console.log` the password
 
-## encrypt another password
+## encrypt the same password again
 
 Strangely, if we encrypt the same password we get two different hashes.
 
@@ -46,7 +46,7 @@ check if a hash matches a string though.
 
 * create a test `it('can compare hashes based on the same password')`
   * create a hash
-  * `then` use `bcryptjs.compare` to compare the unhased string to the hash
+  * `then` use `bcryptjs.compare` to compare the unhashed string to the hash
   * `then` `expect(result).toBeTruthy()`
 
 ## extract hash into a function

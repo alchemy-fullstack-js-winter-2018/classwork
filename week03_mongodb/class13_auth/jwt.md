@@ -6,7 +6,7 @@ docs.
 
 ## create a token
 
-* create a `test/utils/token.js`
+* create a `test/utils/token.test.js`
 * create a test `it('can create a token', () => { })`
   * create a token with `jwt.sign({ payload: { hi: 'there' } }, 'secret');`
   * `expect` the token to be a string
