@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const Tweet = require('../models/Tweet');
 const { HttpError } = require('../middleware/error');
+const ronSwanson = require('../middleware/ronSwanson');
 
 const patcher = (body, fields) => {
   return Object.keys(body)
@@ -13,17 +14,26 @@ const patcher = (body, fields) => {
 };
 
 module.exports = Router()
-  .post('/', (req, res, next) => {
+  .post('/', ronSwanson, (req, res, next) => {
     const { handle, text } = req.body;
-    Tweet
-      .create({ handle, text })
-      .then(tweet => res.send(tweet))
-      .catch(next);
+    if(req.query.random) {
+      Tweet
+        .create({ handle, text: req.quote })
+        .then(tweet => res.send(tweet))
+        .catch(next);
+    } else {
+      Tweet
+        .create({ handle, text })
+        .then(tweet => res.send(tweet))
+        .catch(next);
+    }
   })
 
   .get('/', (req, res, next) => {
     Tweet
       .find()
+      .populate('handle', { handle: true })
+      .select({ __v: false })
       .then(tweets => res.send(tweets))
       .catch(next);
   })
@@ -32,7 +42,8 @@ module.exports = Router()
     const _id = req.params.id;
     Tweet
       .findById(_id)
-      .populate('handle')
+      .populate('handle', { handle: true })
+      .select({ __v: false })
       .then(foundTweet => {
         if(!foundTweet) {
           return next(new HttpError(404, `No Tweet found with ${_id}`));
@@ -44,7 +55,10 @@ module.exports = Router()
 
   .patch('/:id', (req, res, next) => {
     const patched = patcher(req.body, ['handle', 'text']);
-    Tweet.findByIdAndUpdate(req.params.id, patched, { new: true })
+    Tweet
+      .findByIdAndUpdate(req.params.id, patched, { new: true })
+      .populate('handle', { handle: true })
+      .select({ __v: false })
       .then(tweet => res.send(tweet))
       .catch(next);
   })

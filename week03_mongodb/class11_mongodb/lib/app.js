@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const tweets = require('./routes/tweets');
+const connection = require('./middleware/connection');
 const notFound = require('./middleware/notFound');
 const { handler } = require('./middleware/error');
 
@@ -11,7 +12,7 @@ app.use(require('morgan')('dev', {
 }));
 
 app.use(express.json());
-app.use('/tweets', tweets);
+app.use('/tweets', connection, tweets);
 
 app.use(notFound);
 

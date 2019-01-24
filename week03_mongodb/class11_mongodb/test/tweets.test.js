@@ -61,7 +61,7 @@ describe('tweets app', () => {
       });
   });
 
-  it.only('gets a tweet by id', () => {
+  it('gets a tweet by id', () => {
     return createTweet('ryan')
       .then(createdTweet => {
         return Promise.all([
@@ -75,7 +75,6 @@ describe('tweets app', () => {
           handle: expect.any(Object),
           text: 'a tweet',
           _id,
-          __v: 0
         });
       });
   });
@@ -97,10 +96,11 @@ describe('tweets app', () => {
       })
       .then(res => {
         expect(res.body).toEqual({
-          handle: 'ryan',
+          handle: expect.objectContaining({
+            handle: 'ryan'
+          }),
           text: 'Hi there! I am updated',
           _id: expect.any(String),
-          __v: 0
         });
       });
   });
