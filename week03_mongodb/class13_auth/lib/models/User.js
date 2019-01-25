@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { hash, compare } = require('../utils/hash');
-const { untokenize } = require('../../lib/utils/token');
+const { tokenize, untokenize } = require('../../lib/utils/token');
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -32,6 +32,10 @@ userSchema.pre('save', function(next) {
 
 userSchema.methods.compare = function(password) {
   return compare(password, this.passwordHash);
+};
+
+userSchema.methods.authToken = function() {
+  return tokenize(this.toJSON());
 };
 
 userSchema.statics.findByToken = function(token) {
