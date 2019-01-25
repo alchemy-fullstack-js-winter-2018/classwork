@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const { hash } = require('../utils/hash');
+const { hash, compare } = require('../utils/hash');
+const { untokenize } = require('../../lib/utils/token');
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -21,5 +22,14 @@ userSchema.pre('save', function(next) {
       next();
     });
 });
+
+userSchema.methods.compare = function(password) {
+  return compare(password, this.passwordHash);
+};
+
+userSchema.statics.findByToken = function(token) {
+  // untokenize(token)
+  return untokenize(token);
+};
 
 module.exports = mongoose.model('User', userSchema);

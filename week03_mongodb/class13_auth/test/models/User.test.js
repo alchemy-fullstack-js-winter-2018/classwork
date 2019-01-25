@@ -3,6 +3,7 @@ require('../../lib/utils/connect')();
 const mongoose = require('mongoose');
 const { Types } = require('mongoose');
 const User = require('../../lib/models/User');
+const { tokenize } = require('../../lib/utils/token');
 
 describe('User model', () => {
   beforeEach(done => {
@@ -42,6 +43,50 @@ describe('User model', () => {
       .then(user => {
         expect(user.passwordHash).toEqual(expect.any(String));
         expect(user.password).toBeUndefined();
+      });
+  });
+
+  it('can compare good passwords', () => {
+    return User.create({
+      email: 'test@test.com',
+      password: 'p455w0rd'
+    })
+      .then(user => {
+        return user.compare('p455w0rd');
+      })
+      .then(result => {
+        expect(result).toBeTruthy();
+      });
+  });
+
+  it('can compare bad passwords', () => {
+    return User.create({
+      email: 'test@test.com',
+      password: 'p455w0rd'
+    })
+      .then(user => {
+        return user.compare('badPassword');
+      })
+      .then(result => {
+        expect(result).toBeFalsy();
+      });
+  });
+
+  it('can find a user by token', () => {
+    return User.create({
+      email: 'test@test.com',
+      password: 'p455w0rd'
+    })
+      .then(user => tokenize(user))
+      .then(token => User.findByToken(token))
+      .then(userFromToken => {
+        // -> then expect to get a user
+        expect(userFromToken).toEqual({
+          email: 'test@test.com',
+          passwordHash: expect.any(String),
+          _id: expect.any(String),
+          __v: 0
+        });
       });
   });
 });
