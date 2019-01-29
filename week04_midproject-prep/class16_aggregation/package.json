@@ -1,0 +1,20 @@
+{
+  "name": "week04_midproject-prep",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "seed": "node seed.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "mongoose": "^5.4.7"
+  },
+  "devDependencies": {
+    "chance": "^1.0.18",
+    "eslint": "^5.12.1"
+  }
+}
