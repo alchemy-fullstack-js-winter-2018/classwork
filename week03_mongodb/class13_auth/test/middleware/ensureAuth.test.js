@@ -32,7 +32,7 @@ describe('ensureAuth', () => {
       .then(() => {
         // expect req.user to equal the token payload
         expect(req.user).toEqual({ email: 'test@test.com' });
-        expect(next).toHaveBeenCalled();
+        expect(next).toHaveBeenCalled(1);
       });
   });
 });

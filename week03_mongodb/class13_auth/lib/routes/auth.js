@@ -40,6 +40,7 @@ module.exports = Router()
       .catch(next);
   })
 
-  .get('/verify', ensureAuth, (req, res, next) => {
+  .get('/verify', ensureAuth, (req, res) => {
     // res.sends a user (use req.user)
+    res.send(req.user);
   });

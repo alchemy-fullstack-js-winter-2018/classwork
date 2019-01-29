@@ -1,3 +1,4 @@
+
 const User = require('../models/User');
 const { HttpError } = require('./error');
 
@@ -24,7 +25,7 @@ const ensureAuth = (req, res, next) => {
       }
       // -> then set req.user to the found user
       req.user = user;
-
+      next();
     })
     .catch(next);
   // -> catch(next)

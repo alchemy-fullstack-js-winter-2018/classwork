@@ -97,15 +97,26 @@ describe('app', () => {
 
   it('has a /verify route', () => {
     return User.create({ email: 'test@test.com', password: 'password' })
-      .then(user => {
+      .then(() => {
         // login user and get token with the /auth/signin
+        return request(app)
+          .post('/auth/signin')
+          .send({ email: 'test@test.com', password: 'password' })
+          .then(res => res.body.token);
       })
       .then(token => {
         // request /auth/verify and present token
         // use .set('Authorization', `Bearer ${token}`)
+        return request(app)
+          .get('/auth/verify')
+          .set('Authorization', `Bearer ${token}`);
       })
       .then(res => {
         // expect res.body to be a user
+        expect(res.body).toEqual({
+          email: 'test@test.com',
+          _id: expect.any(String)
+        });
       });
   });
 });
