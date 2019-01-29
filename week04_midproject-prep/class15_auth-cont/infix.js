@@ -1,7 +1,7 @@
 const Plus = require('./tree');
 
 const infix = node => {
-    if(!(node.left && node.right)) {
+    if (!(node.left && node.right)) {
         return node.value;
     }
 
@@ -9,6 +9,7 @@ const infix = node => {
     const right = infix(node.right);
 
     return `${left} ${node.value} ${right}`;
+
 };
 
 console.log(infix(Plus));

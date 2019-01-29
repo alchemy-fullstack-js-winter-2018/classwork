@@ -1,16 +1,18 @@
 const Q = require('./letterTree');
 
-const rightRotate = node => {
+const rotate = node => {
     const newRoot = node.left;
-    node.left = null;
 
-    const oldRight = newRoot.right;
-    newRoot.right = null;
+    const arm = newRoot.right;
+    const oldRoot = node;
 
-    newRoot.add(node);
-    newRoot.add(oldRight);
+    oldRoot.left = arm;
+    newRoot.right = oldRoot;
+
+    // newRoot.right = null;
+    // newRoot.add(oldRoot);
 
     return newRoot;
 };
 
-console.log(rightRotate(Q));
+console.log(rotate(Q));

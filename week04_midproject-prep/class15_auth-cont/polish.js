@@ -8,7 +8,7 @@ const polish = node => {
     // (!x && !y)  is the same as
     // !(x || y)
 
-    if(!(node.left && node.right)) {
+    if (!(node.left && node.right)) {
         return node.value;
     }
 

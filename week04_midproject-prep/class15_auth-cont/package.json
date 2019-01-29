@@ -10,6 +10,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^5.7.0"
+    "eslint": "^5.7.0",
+    "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
   }
 }

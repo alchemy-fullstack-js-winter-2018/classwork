@@ -11,4 +11,6 @@ Q.add(T);
 Q.add(C);
 Q.add(L);
 
+console.log(Q.find('L'))
+
 module.exports = Q;
