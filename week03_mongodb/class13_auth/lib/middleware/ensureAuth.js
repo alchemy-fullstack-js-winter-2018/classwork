@@ -1,8 +1,10 @@
 const bearerToken = (req, res, next) => {
+  // Bearer oethuoebuoeruh.,cruhh3249034he
   const token = req
     .get('Authorization')
     .replace(/Bearer\s/i, '');
 
+  // oethuoebuoeruh.,cruhh3249034he
   req.token = token;
   next();
 };
