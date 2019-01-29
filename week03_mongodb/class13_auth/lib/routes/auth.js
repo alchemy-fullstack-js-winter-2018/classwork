@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const User = require('../models/User');
 const { HttpError } = require('../middleware/error');
+const { ensureAuth } = require('../middleware/ensureAuth');
 
 module.exports = Router()
   .post('/signup', (req, res, next) => {
@@ -20,7 +21,7 @@ module.exports = Router()
         if(!user) {
           return next(new HttpError(401, 'Bad email or password'));
         }
-        
+
         return Promise.all([
           Promise.resolve(user),
           user.compare(password)
@@ -37,4 +38,8 @@ module.exports = Router()
         }
       })
       .catch(next);
+  })
+
+  .get('/verify', ensureAuth, (req, res, next) => {
+    // res.sends a user (use req.user)
   });
