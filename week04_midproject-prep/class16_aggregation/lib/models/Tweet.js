@@ -12,10 +12,14 @@ const tweetSchema = new mongoose.Schema({
   }
 });
 
+const projectLengthStage = () => ({ $project: { text: '$text', length: { $strLenCP: '$text' } } });
+
+const groupByLength = () => ({ $group: { _id: null, avg: { $avg: '$length' } } });
+
 tweetSchema.statics.averageLength = function() {
   return this.aggregate([
-    { $project: { text: '$text', length: { $strLenCP: '$text' } } },
-    { $group: { _id: null, avg: { $avg: '$length' } } }
+    projectLengthStage(),
+    groupByLength()
   ]);
 };
 

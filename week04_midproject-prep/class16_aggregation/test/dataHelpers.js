@@ -44,6 +44,14 @@ const prepare = model => JSON.parse(JSON.stringify(model));
 const prepareAll = models => models.map(prepare);
 
 const createGetters = Model => {
+  /*
+  User
+  {
+    getUser: (query = {}) => User.findOne(query).then(prepare),
+    getUsers: (query = {}) => User.find(query).then(prepareAll)
+  }
+
+  */
   return {
     [`get${Model.modelName}`]: (query = {}) => Model.findOne(query).then(prepare),
     [`get${Model.modelName}s`]: (query = {}) => Model.find(query).then(prepareAll),
