@@ -1,6 +1,5 @@
 const { getUser, getToken } = require('./dataHelpers');
 const request = require('supertest');
-const User = require('../lib/models/User');
 
 const app = require('../lib/app');
 

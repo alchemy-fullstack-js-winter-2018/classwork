@@ -17,7 +17,7 @@ beforeEach(done => {
 });
 
 beforeEach(() => {
-  return seedData();
+  return seedData({ totalUsers: 3, totalTweets: 5 });
 });
 
 let token;
