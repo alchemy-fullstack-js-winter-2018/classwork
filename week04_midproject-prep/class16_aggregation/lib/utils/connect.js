@@ -9,13 +9,15 @@ function redact(uri) {
 
 function log(event, dbUri) {
   return function() {
-    console.log(`Connection ${event} on ${redact(dbUri)}`);
+    if(process.env.NODE_ENV !== 'test') {
+      console.log(`Connection ${event} on ${redact(dbUri)}`);
+    }
   };
 }
 
 module.exports = (dbUri = process.env.MONGODB_URI) => {
   // use mongoose.connect to connect to db
-  mongoose.connect(dbUri, { useNewUrlParser: true });
+  mongoose.connect(dbUri, { useNewUrlParser: true, useCreateIndex: true });
 
   mongoose.connection.on('open', log('open', dbUri));
 

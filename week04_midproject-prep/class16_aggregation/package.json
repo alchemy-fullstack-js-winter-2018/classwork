@@ -2,19 +2,32 @@
   "name": "week04_midproject-prep",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
+    "start:watch": "nodemon server.js",
+    "test": "jest --verbose --runInBand",
+    "test:watch": "npm run test -- --watch",
     "seed": "node seed.js"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.4.7"
   },
   "devDependencies": {
     "chance": "^1.0.18",
-    "eslint": "^5.12.1"
+    "eslint": "^5.12.1",
+    "jest": "^24.0.0",
+    "nodemon": "^1.18.9",
+    "supertest": "^3.4.2"
   }
 }
