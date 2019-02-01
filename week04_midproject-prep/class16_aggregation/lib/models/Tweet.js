@@ -18,8 +18,8 @@ const groupByLength = () => ({ $group: { _id: null, avg: { $avg: '$length' } } }
 
 tweetSchema.statics.averageLength = function() {
   return this.aggregate([
-    projectLengthStage(),
-    groupByLength()
+    { $project: { text: '$text', length: { $strLenCP: '$text' } } },
+    { $group: { _id: null, avg: { $avg: '$length' } } }
   ]);
 };
 
