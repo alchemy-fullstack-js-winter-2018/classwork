@@ -21,8 +21,9 @@ module.exports = Router()
   })
 
   .get('/', (req, res, next) => {
+    const { user, caption } = req.query;
     Post
-      .find()
+      .find({ user, caption })
       .then(posts => res.send(posts))
       .catch(next);
   })

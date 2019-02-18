@@ -1,55 +1,63 @@
-const { getPost, getToken } = require('./dataHelpers');
+// require('dotenv').config();
+// const connect = require('../lib/utils/connect');
+// const mongoose = require('mongoose');
+// const seedData = require('./seedData');
+
+const { getToken, getPost } = require('./dataHelpers');
+
+const User = require('../lib/models/User');
 const request = require('supertest');
 const app = require('../lib/app');
 
 describe('post routes', () => {
-  it('can create a new post', () => {
+  // beforeAll(() => {
+  //   return connect();
+  // });
+
+  // beforeEach(done => {
+  //   return mongoose.connection.dropDatabase(done);
+  // });
+
+  // beforeEach(() => {
+  //   return seedData({ totalUsers: 3, totalPosts: 5, totalComments: 10 });
+  // });
+
+  // afterAll(done => {
+  //   return mongoose.connection.close(done);
+  // });
+
+  it('can create a post', () => {
+    // return User.findOne()
+    //   .then(user => {
+    //     return request(app)
+    //       .post('/auth/signin')
+    //       .send({ username: user.username, password: 'password' });
+    //   })
+    //   .then(res => {
+    //     const token = res.body.token;
+    //     return request(app)
+    //       .post('/posts')
+    //       .send({ photoUrl: '1234', caption: 'hi there' })
+    //       .set('Authorization', `Bearer ${token}`);
+    //   })
     return request(app)
       .post('/posts')
+      .send({ photoUrl: '1234', caption: 'hi there' })
       .set('Authorization', `Bearer ${getToken()}`)
-      .send({
-        photoUrl: 'testUrl',
-        caption: 'hi there',
-        tags: ['hi']
-      })
       .then(res => {
         expect(res.body).toEqual({
-          photoUrl: 'testUrl',
+          photoUrl: '1234',
           caption: 'hi there',
-          tags: ['hi'],
           _id: expect.any(String),
-          user: expect.any(String),
           __v: 0
         });
       });
-
   });
 
-  it('gets a list of posts', () => {
-    return request(app)
-      .get('/posts')
-      .then(res => {
-        expect(res.body).toHaveLength(5);
-      });
-  });
-
-  it('gets a post by id', () => {
+  it('update a post', async() => {
     return getPost()
       .then(post => {
-        return request(app)
-          .get(`/posts/${post._id}`);
-      })
-      .then(res => {
-        expect(res.body).toEqual({
-          user: expect.objectContaining({
-            username: expect.stringContaining('seed')
-          }),
-          caption: expect.any(String),
-          photoUrl: expect.any(String),
-          tags: [],
-          _id: expect.any(String),
-          __v: 0
-        });
+
       });
   });
 });

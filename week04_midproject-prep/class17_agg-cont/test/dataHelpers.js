@@ -17,7 +17,7 @@ beforeEach(done => {
 });
 
 beforeEach(() => {
-  return seedData({ totalUsers: 3, totalPosts: 5 });
+  return seedData({ totalUsers: 3, totalPosts: 5, totalComments: 10 });
 });
 
 let token;
@@ -59,7 +59,14 @@ const createGetters = Model => {
 };
 
 module.exports = {
+  // getUser: (query = {}) => User.findOne(query).then(prepare),
+  // getUsers: (query = {}) => User.find(query).then(prepareAll),
+  // getPost: (query = {}) => Post.findOne(query).then(prepare),
+  // getPosts: (query = {}) => Post.find(query).then(prepareAll),
+  // getComment: (query = {}) => Comment.findOne(query).then(prepare),
+  // getComments: (query = {}) => Comment.find(query).then(prepareAll),
   ...createGetters(User),
   ...createGetters(Post),
+  // ...createGetters(Comment),
   getToken: () => token
 };

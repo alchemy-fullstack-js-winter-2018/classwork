@@ -42,7 +42,28 @@ describe('Store', () => {
     });
   });
 
+  const storeCreatePromise = (item) => {
+    return new Promise((resolve, reject) => {
+      store.create(item, (err, createdItem) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(createdItem)
+        }
+      })
+    })
+  }
+
   it('find all objects tracked by the store', done => {
+    Promise.all([1, 2, 3, 4, 5].map(item => storeCreatePromise({ item })))
+      .then(([item1, item2, item3, item4, item5]) => {
+
+      })
+    storeCreatePromise({ item: 1 })
+      .then(() => storeCreatePromise({ item: 2 }))
+      .then(() => storeCreatePromise({ item: 3 }))
+      .then(() => storeCreatePromise({ item: 4 }))
+      .then(() => storeCreatePromise({ item: 5 }))
     store.create({ item: 1 }, (err, item1) => {
       store.create({ item: 2 }, (err, item2) => {
         store.create({ item: 3 }, (err, item3) => {

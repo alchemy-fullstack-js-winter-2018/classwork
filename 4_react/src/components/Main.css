@@ -1,0 +1,21 @@
+.main {
+  header {
+    background-color: red;
+  }
+
+  ul {
+    display: grid;
+    list-style: none;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+  }
+
+  li {
+    margin:  auto;
+  }
+
+  img {
+    width: 200px;
+    height: auto;
+  }
+}
