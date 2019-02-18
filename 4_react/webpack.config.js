@@ -25,6 +25,33 @@ module.exports = {
             cacheDirectory: true
           }
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: { sourceMap: true }
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              modules: true,
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              plugin: [
+                require('autoprefixer')(),
+                require('postcss-nested')()
+              ]
+            }
+          }
+        ]
       }
     ]
   }
