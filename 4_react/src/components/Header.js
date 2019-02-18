@@ -1,15 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './Header.css';
 
-const Header = ({ title }) => (
-  <header className={styles.header}>
-    <h1>{title}</h1>
-  </header>
-);
-
-Header.propTypes = {
-  title: PropTypes.string.isRequired
-};
+function Header() {
+  return (
+    <header>
+      <h1>My Site</h1>
+    </header>
+  );
+}
 
 export default Header;

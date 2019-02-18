@@ -1,15 +1,18 @@
 import React, { Fragment } from 'react';
-import Main from './Main';
 import Header from './Header';
+import Dogs from './Dogs';
 import Footer from './Footer';
-import 'normalize.css';
 
-export default function App() {
+function App() {
+  const dogNames = ['rover', 'bingo', 'spot'];
+
   return (
     <Fragment>
-      <Header title="My photo site" />
-      <Main photo="../assets/tree1.jpg" />
-      <Footer name="Ryan" />
+      <Header />
+      <Dogs dogs={dogNames} />
+      <Footer />
     </Fragment>
   );
 }
+
+export default App;

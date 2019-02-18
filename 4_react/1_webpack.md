@@ -1,9 +1,9 @@
 # webpack
 
 * `npm i -D webpack webpack-cli`
+* `npm i -D babel-loader @babel/core @babel/preset-env`
 * `npm i -D html-webpack-plugin`
 * `npm i -D clean-webpack-plugin`
-* `npm i -D babel-loader @babel/core @babel/preset-env`
 
 ## First webpack config
 

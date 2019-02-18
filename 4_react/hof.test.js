@@ -3,7 +3,8 @@ const {
   curryAdd,
   counter,
   partialAdd,
-  curryMultiply
+  curryMultiply,
+  memo
 } = require('./hof');
 
 describe('counter', () => {
@@ -31,5 +32,18 @@ describe('counter', () => {
   it('curries a multiply function', () => {
     expect(curryMultiply(2)(2)(3)(4)(1))
       .toEqual(48);
+  });
+
+  it('memoizes a function', () => {
+    const fn = jest.fn();
+
+    const memoFn = memo(fn);
+    memoFn(1, 2);
+    memoFn(1, 2);
+    memoFn(3, 4);
+    memoFn(3, 4);
+    memoFn(3, 4);
+
+    expect(fn).toHaveBeenCalledTimes(2);
   });
 });

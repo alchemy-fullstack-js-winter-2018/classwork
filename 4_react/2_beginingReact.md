@@ -16,7 +16,6 @@
   * extends
    * plugin:react/recommended
 * Changes to webpack
-  * devServer
   * preset-react
 
 ## First react app
