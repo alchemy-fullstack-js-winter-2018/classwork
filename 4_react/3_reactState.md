@@ -59,7 +59,7 @@ class App extends PureComponent {
 
 * `npm i figlet`
 * create a fonts directory
-* cp node_modules/figlet/fonts fonts
+* cp node_modules/figlet/fonts/* fonts
 * create a `formatText` function
   * use `figlet.text` to create formated text
   * use `this.setState` to save the formated text to state
