@@ -4,6 +4,7 @@ import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
 import TextFormatter from './TextFormatter';
 import FormatDisplay from './FormatDisplay';
+import FileSaver from './FileSaver';
 
 export default class App extends PureComponent {
   constructor(props) {
@@ -19,10 +20,6 @@ export default class App extends PureComponent {
     formattedText: '',
     font: 'Basic',
     img: ''
-  };
-
-  saveFile = () => {
-    fileSaver.saveAs(this.state.img);
   };
 
   textToImage = event => {
@@ -60,22 +57,19 @@ export default class App extends PureComponent {
   render() {
     const { text, formattedText, font, img } = this.state;
 
-
-
     return (
       <>
         <TextFormatter
           text={text}
           font={font}
-          handleChange={this.handleChange}
-          textToImage={this.textToImage}
+          onChange={this.handleChange}
+          onSubmit={this.textToImage}
         />
         <FormatDisplay
           formattedText={formattedText}
           formattedTextRef={this.formattedTextRef}
         />
-        {img && <img src={img} />}
-        {img && <button onClick={this.saveFile}>Save File</button>}
+        {img && <FileSaver img={img} />}
         <button onClick={this.handleClick}>Click</button>
       </>
     );
