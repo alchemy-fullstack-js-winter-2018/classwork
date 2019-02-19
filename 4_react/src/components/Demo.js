@@ -5,11 +5,13 @@ export default class App extends PureComponent {
   state = {
     count: 0,
     text: '',
-    formatedText: ''
+    formatedText: '',
+    font: 'Basic',
+    img: ''
   };
 
   formatText = () => {
-    const font = 'Ghost';
+    const { font } = this.state;
     figlet.text(this.state.text,
       { font },
       (err, formatedText) => {
@@ -33,10 +35,17 @@ export default class App extends PureComponent {
   };
 
   render() {
-    const { text, formatedText } = this.state;
+    const { text, formatedText, font } = this.state;
+
+    const fontOptions = ['Ghost', 'Weird', 'Chunky', 'Basic', 'Lil Devil'].map(f => {
+      return <option key={f} value={f}>{f}</option>;
+    });
+
     return (
       <>
-
+        <select name="font" onChange={this.handleChange} value={font}>
+          {fontOptions}
+        </select>
         <input type="text" name="text" value={text} onChange={this.handleChange} />
         <h1>{text}</h1>
         <h2><pre>{formatedText}</pre></h2>
@@ -45,9 +54,3 @@ export default class App extends PureComponent {
     );
   }
 }
-
-// function App() {
-//   return (
-//     <h1>Hi</h1>
-//   );
-// }
