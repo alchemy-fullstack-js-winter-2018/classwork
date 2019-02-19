@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import tree1 from '../assets/tree1.jpg';
+import tree2 from '../assets/tree2.jpg';
 
 function Dogs({ dogs }) {
   const listOfDogs = dogs.map(name => {
@@ -9,6 +11,8 @@ function Dogs({ dogs }) {
   });
   return (
     <ul>
+      <img src={tree1} />
+      <img src={tree2} />
       {listOfDogs}
     </ul>
   );
