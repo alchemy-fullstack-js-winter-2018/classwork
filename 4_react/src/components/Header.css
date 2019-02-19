@@ -1,12 +1,9 @@
 .header {
-  background-color: black;
+  background-color: rgb(92, 58, 58);
   color: white;
+  bor
 
   h1 {
     color: red;
   }
-}
-
-.myHeader {
-
 }

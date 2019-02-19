@@ -3,6 +3,7 @@
     "ecmaVersion": 9,
     "sourceType": "module"
   },
+  "parser": "babel-eslint",
   "env": {
     "es6": true,
     "browser": true,
@@ -77,6 +78,8 @@
         }
       }
     ],
-    "array-bracket-spacing": "error"
+    "array-bracket-spacing": "error",
+    "babel/no-invalid-this": 1,
+    "babel/semi": 1
   }
 }

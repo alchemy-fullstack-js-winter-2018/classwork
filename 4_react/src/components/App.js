@@ -3,14 +3,19 @@ import Header from './Header';
 import Dogs from './Dogs';
 import Footer from './Footer';
 import 'normalize.css';
+import './App.css';
 
 function App() {
-  const dogNames = ['rover', 'bingo', 'spot'];
+  const dogNames = [
+    { name: 'rover', about: 'good dog' },
+    { name: 'bingo', about: 'bad dog' },
+    { name: 'spot', about: 'ok dog' }
+  ];
 
   return (
     <Fragment>
       <Header />
-      <Dogs dogs={dogNames} />
+      <Dogs namesOfDogs={dogNames} />
       <Footer />
     </Fragment>
   );
