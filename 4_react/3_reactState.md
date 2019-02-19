@@ -100,3 +100,12 @@ class App extends PureComponent {
 * create a `saveFile` function
   * use `fileSaver.saveAs` to save an image
 * create a button with `onClick` handled by `saveFile`
+
+## extract components
+
+* `TextFormatter`
+  * Allows us to type text
+* `FormatDisplay`
+  * Displays formatted text
+* `FileSaver`
+  * displays and saves an image
