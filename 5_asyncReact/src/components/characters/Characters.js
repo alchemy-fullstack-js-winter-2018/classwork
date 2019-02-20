@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { getCharacters } from '../../services/rickAndMortyApi';
 import Character from './Character';
 
 const results = [
@@ -579,7 +580,10 @@ export default class Characters extends PureComponent {
   };
 
   componentDidMount() {
-    this.setState({ characters: results });
+    getCharacters()
+      .then(response => {
+        this.setState({ characters: response.results });
+      });
   }
 
   render() {
