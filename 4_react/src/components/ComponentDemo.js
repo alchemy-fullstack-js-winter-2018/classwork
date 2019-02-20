@@ -1,52 +1,47 @@
-import React, { Component, PureComponent } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Header from './Header';
 
-class Pure extends PureComponent {
-
-  componentDidUpdate() {
-    console.log('Pure updated');
-  }
-  render() {
-    console.log('pure rendered');
-
-    return <h1>Pure</h1>;
-  }
-}
-
-class NonPure extends Component {
-
-  componentDidUpdate() {
-    console.log('Component updated');
-  }
-  render() {
-    console.log('component rendered');
-    return <h1>Component</h1>;
-  }
-}
-
-export default class ComponentDemo extends Component {
+class ComponentDemo extends Component {
   state = {
-    count: 0,
-    countProps: 0
+    dogs: ['rover', 'bingo', 'spot']
   };
 
-  incrementCount = () => {
-    this.setState(state => ({ count: state.count + 1 }));
-  };
-
-  incrementCountProps = () => {
-    this.setState(state => ({ countProps: state.countProps + 1 }));
+  handleAddDog = () => {
+    this.setState({ dogs: [...this.state.dogs, 'buddy'] });
   };
 
   render() {
-    const { countProps } = this.state;
     return (
       <>
-        <Pure count={countProps} />
-        <NonPure count={countProps} />
-        <button onClick={this.incrementCount}>Change State</button>
-        <button onClick={this.incrementCountProps}>Change Props</button>
-
+        <Header title="My Title" subHeader="My SubHeader" />
+        <Header title="My Title1" />
+        <Header title="My Title2" />
+        <Dogs dogs={this.state.dogs} addDog={this.handleAddDog} />
       </>
     );
   }
 }
+
+function Dogs({ dogs, addDog }) {
+  // [<li>rover</li>, <li>bingo</li>, <li>spot</li>]
+  const dogsList = dogs.map(dogName => {
+    return <li key={dogName}>{dogName}</li>;
+  });
+
+  return (
+    <>
+      <ul>
+        {dogsList}
+      </ul>
+      <button onClick={addDog}>Add Dog to List</button>
+    </>
+  );
+}
+
+Dogs.propTypes = {
+  dogs: PropTypes.array.isRequired,
+  addDog: PropTypes.func.isRequired
+};
+
+export default ComponentDemo;

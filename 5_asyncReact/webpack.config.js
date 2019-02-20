@@ -1,6 +1,5 @@
 const HtmlPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
-const DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
   entry: ['@babel/polyfill', './src/index.js'],
@@ -12,8 +11,7 @@ module.exports = {
   },
   plugins: [
     new HtmlPlugin({ template: './src/index.html' }),
-    new CleanPlugin('./dist'),
-    new DashboardPlugin()
+    new CleanPlugin('./dist')
   ],
   module: {
     rules: [
