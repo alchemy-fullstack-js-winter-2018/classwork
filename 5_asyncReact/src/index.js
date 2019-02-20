@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import ComponentDemo from './components/ComponentDemo';
+import App from './components/App';
 
 // render allows us to append a child
 render(
-  <ComponentDemo />,
+  <App />,
   document.getElementById('root')
 );

@@ -19,3 +19,5 @@
   * check render
 * Higher Order Components
 * Making API Calls
+* Snapshot testing
+* Enzyme testing
