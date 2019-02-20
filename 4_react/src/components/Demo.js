@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import figlet from 'figlet';
 import domToImage from 'dom-to-image';
-import fileSaver from 'file-saver';
 import TextFormatter from './TextFormatter';
 import FormatDisplay from './FormatDisplay';
 import FileSaver from './FileSaver';
@@ -54,11 +53,19 @@ export default class App extends PureComponent {
     });
   };
 
+  uploadFile = ({ target }) => {
+    const imgUpload = URL.createObjectURL(target.files[0]);
+    console.log(imgUpload);
+    this.setState({ imgUpload });
+  };
+
   render() {
     const { text, formattedText, font, img } = this.state;
 
     return (
       <>
+        <input type="file" onChange={this.uploadFile} />
+        <img src={this.state.imgUpload} />
         <TextFormatter
           text={text}
           font={font}
