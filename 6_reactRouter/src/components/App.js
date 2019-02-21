@@ -26,8 +26,7 @@ function Search() {
   );
 }
 
-function Artist(props) {
-  console.log(props.match.params.id);
+function Artist() {
   return <h1>Artist</h1>;
 }
 
