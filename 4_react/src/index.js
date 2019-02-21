@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import MemeApp from './components/meme/MemeApp';
+import App from './components/review/App';
 
 // render allows us to append a child
 render(
-  <MemeApp />,
+  <App />,
   document.getElementById('root')
 );

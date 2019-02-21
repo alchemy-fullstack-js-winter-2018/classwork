@@ -31,7 +31,9 @@ export default class Characters extends PureComponent {
     });
     return (
       <table>
-        {characters}
+        <tbody>
+          {characters}
+        </tbody>
       </table>
     );
   }
