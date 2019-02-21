@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withPaging } from '../paging/Paging';
-import { getCharacters } from '../../services/__mocks__/rickAndMortyApi';
+import { getCharacters, getLocations } from '../../services/__mocks__/rickAndMortyApi';
 import Character from './Character';
 import { withFetch } from '../fetch/Fetch';
 
