@@ -569,9 +569,23 @@ const results = [
   }
 ];
 
+const locationsResults = [
+  { name: 'Planet1', type: 'planet', dimension: '4' },
+  { name: 'Planet2', type: 'planet', dimension: '4' },
+  { name: 'Planet3', type: 'planet', dimension: '4' },
+  { name: 'Planet4', type: 'planet', dimension: '4' }
+];
+
 export const getCharacters = () => {
   return Promise.resolve({
     totalPages: 25,
     results
+  });
+};
+
+export const getLocations = () => {
+  return Promise.resolve({
+    totalPages: 4,
+    results: locationsResults
   });
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Characters from './Characters';
+import { Characters } from './Characters';
 
 jest.mock('../../services/rickAndMortyApi.js');
 
