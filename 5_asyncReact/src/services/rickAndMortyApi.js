@@ -1,12 +1,12 @@
 export const getCharacters = page => {
-  return fetch(`https://swapi.co/api/people?page=${page}`, {
+  return fetch(`https://rickandmortyapi.com/api/character?page=${page}`, {
     headers: {
       origin: null
     }
   })
     .then(res => res.json())
     .then(json => ({
-      totalPages: Math.ceil(json.count / 10),
+      totalPages: json.info.pages,
       results: json.results
     }));
 };

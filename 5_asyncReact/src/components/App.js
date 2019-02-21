@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Paging from './paging/Paging';
 import Characters from './characters/Characters';
 
 export default class App extends Component {
@@ -24,9 +25,12 @@ export default class App extends Component {
 
     return (
       <>
-        {currentPage > 1 && <button onClick={this.decrementCurrentPage}>Back</button>}
-        <span>{currentPage} / {totalPages}</span>
-        {currentPage < totalPages && <button onClick={this.incrementCurrentPage}>Forward</button>}
+        <Paging
+          currentPage={currentPage}
+          totalPages={totalPages}
+          increment={this.incrementCurrentPage}
+          decrement={this.decrementCurrentPage}
+        />
         <Characters
           page={currentPage}
           updateTotalPages={this.updateTotalPages}

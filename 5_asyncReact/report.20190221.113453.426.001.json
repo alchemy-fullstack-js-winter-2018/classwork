@@ -1,0 +1,484 @@
+
+{
+  "header": {
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "location": "OnFatalError",
+    "filename": "report.20190221.113453.426.001.json",
+    "dumpEventTime": "2019-02-21T11:34:53Z",
+    "dumpEventTimeStamp": "1550777693113",
+    "processId": 426,
+    "commandLine": [
+      "/home/ryan/.n/bin/node",
+      "/home/ryan/code/alchemy/winter-2019/classwork/5_asyncReact/node_modules/jest-worker/build/workers/processChild.js"
+    ],
+    "nodejsVersion": "v11.10.0",
+    "glibcVersionRuntime": "2.28",
+    "glibcVersionCompiler": "2.12",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "linux",
+    "componentVersions": {
+      "node": "11.10.0",
+      "v8": "7.0.276.38-node.17",
+      "uv": "1.26.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "67",
+      "nghttp2": "1.34.0",
+      "napi": "4",
+      "llhttp": "1.1.1",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1a",
+      "cldr": "34.0",
+      "icu": "63.1",
+      "tz": "2018e",
+      "unicode": "11.0"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v11.10.0/node-v11.10.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v11.10.0/node-v11.10.0.tar.gz"
+    },
+    "osName": "Linux",
+    "osRelease": "4.20.8-arch1-1-ARCH",
+    "osVersion": "#1 SMP PREEMPT Wed Feb 13 00:06:58 UTC 2019",
+    "osMachine": "x86_64",
+    "host": "fichte"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x0000000000a683e8",
+      "symbol": "report::TriggerNodeReport(v8::Isolate*, node::Environment*, char const*, char const*, std::string, v8::Local<v8::String>) [/home/ryan/.n/bin/node]"
+    },
+    {
+      "pc": "0x00000000009548de",
+      "symbol": "node::OnFatalError(char const*, char const*) [/home/ryan/.n/bin/node]"
+    },
+    {
+      "pc": "0x0000000000b32bee",
+      "symbol": "v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [/home/ryan/.n/bin/node]"
+    },
+    {
+      "pc": "0x0000000000b32e24",
+      "symbol": "v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [/home/ryan/.n/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f32452",
+      "symbol": " [/home/ryan/.n/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f32558",
+      "symbol": "v8::internal::Heap::CheckIneffectiveMarkCompact(unsigned long, double) [/home/ryan/.n/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f3ec78",
+      "symbol": "v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::GCCallbackFlags) [/home/ryan/.n/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f3f78b",
+      "symbol": "v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [/home/ryan/.n/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f424c1",
+      "symbol": "v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationSpace, v8::internal::AllocationAlignment) [/home/ryan/.n/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f0c6f4",
+      "symbol": "v8::internal::Factory::NewFillerObject(int, bool, v8::internal::AllocationSpace) [/home/ryan/.n/bin/node]"
+    },
+    {
+      "pc": "0x00000000011c2b3e",
+      "symbol": "v8::internal::Runtime_AllocateInNewSpace(int, v8::internal::Object**, v8::internal::Isolate*) [/home/ryan/.n/bin/node]"
+    },
+    {
+      "pc": "0x00002d67366cfc5d",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 1495556096,
+    "totalCommittedMemory": 1492815456,
+    "usedMemory": 1462421512,
+    "availableMemory": 32972424,
+    "memoryLimit": 1526909922,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 524288,
+        "committedMemory": 42224,
+        "capacity": 515584,
+        "used": 33520,
+        "available": 482064
+      },
+      "new_space": {
+        "memorySize": 3145728,
+        "committedMemory": 1917200,
+        "capacity": 1546752,
+        "used": 342344,
+        "available": 1204408
+      },
+      "old_space": {
+        "memorySize": 1483411456,
+        "committedMemory": 1482981904,
+        "capacity": 1456551824,
+        "used": 1456427728,
+        "available": 124096
+      },
+      "code_space": {
+        "memorySize": 1572864,
+        "committedMemory": 1240032,
+        "capacity": 1004864,
+        "used": 1004864,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 2633728,
+        "committedMemory": 2366064,
+        "capacity": 1700640,
+        "used": 1700640,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 4268032,
+        "committedMemory": 4268032,
+        "capacity": 34074272,
+        "used": 2912416,
+        "available": 31161856
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 0,
+        "used": 0,
+        "available": 0
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 59.5402,
+    "kernelCpuSeconds": 59.5402,
+    "cpuConsumptionPercent": 7.67876e-06,
+    "maxRss": 1536192512,
+    "pageFaults": {
+      "IORequired": 8,
+      "IONotRequired": 425971
+    },
+    "fsActivity": {
+      "reads": 1816,
+      "writes": 0
+    }
+  },
+  "uvthreadResourceUsage": {
+    "userCpuSeconds": 36.5242,
+    "kernelCpuSeconds": 36.5242,
+    "cpuConsumptionPercent": 4.71044e-06,
+    "fsActivity": {
+      "reads": 1816,
+      "writes": 0
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "/usr/local/bin:/usr/local/sbin:/usr/bin:/opt/cuda/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl": "",
+    "SHELL": "/usr/bin/zsh",
+    "npm_config_timing": "",
+    "npm_config_access": "",
+    "LSCOLORS": "exfxcxdxbxegedabagacad",
+    "npm_config_save_dev": "",
+    "SESSION_MANAGER": "local/fichte:@/tmp/.ICE-unix/1057,unix/fichte:/tmp/.ICE-unix/1057",
+    "npm_config_sign_git_tag": "",
+    "npm_config_userconfig": "/home/ryan/.npmrc",
+    "npm_config_global": "",
+    "npm_config_unsafe_perm": "true",
+    "COLORTERM": "truecolor",
+    "npm_config_fetch_retry_mintimeout": "10000",
+    "npm_config_cache": "/home/ryan/.npm",
+    "npm_config_loglevel": "notice",
+    "npm_config_init_author_name": "",
+    "LESS": "-R",
+    "npm_package_main": "src/index.js",
+    "npm_config_send_metrics": "",
+    "GREP_COLOR": "1;33",
+    "XDG_MENU_PREFIX": "gnome-",
+    "TERM_PROGRAM_VERSION": "1.30.1",
+    "npm_config_optional": "true",
+    "npm_config_user": "1000",
+    "npm_config_git_tag_version": "true",
+    "npm_package_devDependencies__babel_preset_env": "^7.3.1",
+    "APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL": "true",
+    "npm_config_rebuild_bundle": "true",
+    "npm_config_always_auth": "",
+    "npm_config_cache_max": "Infinity",
+    "NODE": "/home/ryan/.n/bin/node",
+    "npm_config_searchstaleness": "900",
+    "npm_config_ignore_scripts": "",
+    "npm_config_save_optional": "",
+    "npm_package_devDependencies_autoprefixer": "^9.4.7",
+    "npm_package_devDependencies_style_loader": "^0.23.1",
+    "SSH_AUTH_SOCK": "/run/user/1000/keyring/ssh",
+    "npm_config_dev": "",
+    "GRADLE_HOME": "/home/ryan/.sdkman/candidates/gradle/current",
+    "npm_config_browser": "",
+    "npm_config_maxsockets": "50",
+    "npm_config_argv": "{\"remain\":[\"--watch\"],\"cooked\":[\"run\",\"test\",\"--\",\"--watch\"],\"original\":[\"run\",\"test\",\"--\",\"--watch\"]}",
+    "SDKMAN_CANDIDATES_DIR": "/home/ryan/.sdkman/candidates",
+    "npm_config_ham_it_up": "",
+    "XMODIFIERS": "@im=ibus",
+    "npm_package_devDependencies__babel_plugin_transform_async_to_generator": "^7.2.0",
+    "npm_config_bin_links": "true",
+    "DESKTOP_SESSION": "gnome-xorg",
+    "npm_config_allow_same_version": "",
+    "npm_config_globalconfig": "/home/ryan/.npm-global/etc/npmrc",
+    "npm_config_cache_min": "10",
+    "npm_package_scripts_test_watch": "npm run test -- --watch",
+    "EDITOR": "vim",
+    "npm_config_tag_version_prefix": "v",
+    "npm_config_shell": "/usr/bin/zsh",
+    "npm_config_preid": "",
+    "npm_config_usage": "",
+    "XDG_SEAT": "seat0",
+    "PWD": "/home/ryan/code/alchemy/winter-2019/classwork/5_asyncReact",
+    "npm_config_only": "",
+    "npm_config_save_prefix": "^",
+    "XDG_SESSION_DESKTOP": "gnome-xorg",
+    "LOGNAME": "ryan",
+    "npm_package_devDependencies_file_loader": "^3.0.1",
+    "XDG_SESSION_TYPE": "x11",
+    "npm_config_sign_git_commit": "",
+    "npm_package_readmeFilename": "README.md",
+    "npm_package_dependencies_react": "^16.8.2",
+    "npm_config_commit_hooks": "true",
+    "npm_config_init_module": "/home/ryan/.npm-init.js",
+    "npm_config_otp": "",
+    "npm_config_editor": "vim",
+    "npm_package_devDependencies__babel_core": "^7.3.3",
+    "npm_config_tmp": "/tmp",
+    "npm_package_scripts_build": "webpack -p",
+    "npm_config_audit_level": "low",
+    "npm_package_author": "",
+    "_": "/home/ryan/code/alchemy/winter-2019/classwork/5_asyncReact/node_modules/.bin/jest",
+    "npm_config_color": "true",
+    "XAUTHORITY": "/run/user/1000/gdm/Xauthority",
+    "npm_config_package_lock_only": "",
+    "npm_config_save_prod": "",
+    "npm_package_devDependencies_babel_loader": "^8.0.5",
+    "WINDOWPATH": "2",
+    "npm_package_devDependencies_postcss_nested": "^4.1.1",
+    "npm_package_devDependencies_prop_types": "^15.7.2",
+    "npm_package_devDependencies_css_loader": "^2.1.0",
+    "npm_package_devDependencies_babel_polyfill": "^6.26.0",
+    "GDM_LANG": "en_AU.UTF-8",
+    "npm_config_also": "",
+    "npm_config_cidr": "",
+    "HOME": "/home/ryan",
+    "npm_config_node_version": "11.10.0",
+    "USERNAME": "ryan",
+    "LANG": "en_US.UTF-8",
+    "npm_config_init_author_url": "",
+    "npm_package_devDependencies_webpack": "^4.29.5",
+    "LS_COLORS": "di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:",
+    "XDG_CURRENT_DESKTOP": "GNOME",
+    "npm_config_globalignorefile": "/home/ryan/.npm-global/etc/npmignore",
+    "npm_config_init_license": "ISC",
+    "npm_package_version": "1.0.0",
+    "npm_config_cache_lock_stale": "60000",
+    "npm_package_dependencies_normalize_css": "^8.0.1",
+    "VTE_VERSION": "5403",
+    "N_PREFIX": "/home/ryan/.n",
+    "npm_config_versions": "",
+    "npm_config_proxy": "",
+    "npm_config_fetch_retry_maxtimeout": "60000",
+    "npm_config_fetch_retries": "2",
+    "npm_config_git": "git",
+    "npm_package_devDependencies_html_webpack_plugin": "^3.2.0",
+    "npm_config_read_only": "",
+    "npm_config_group": "1000",
+    "SDKMAN_VERSION": "5.6.1+290",
+    "npm_config_unicode": "true",
+    "npm_config_sso_type": "oauth",
+    "npm_config_cache_lock_retries": "10",
+    "npm_package_devDependencies_react_test_renderer": "^16.8.2",
+    "npm_config_local_address": "",
+    "npm_config_description": "true",
+    "npm_package_jest_moduleNameMapper____jpg_jpeg_png_gif_eot_otf_webp_svg_ttf_woff_woff2_mp4_webm_wav_mp3_m4a_aac_oga__": "<rootDir>/__mocks__/fileMock.js",
+    "sdkman_disable_gvm_alias": "false",
+    "INIT_CWD": "/home/ryan/code/alchemy/winter-2019/classwork/5_asyncReact",
+    "npm_config_dry_run": "",
+    "CHROME_DESKTOP": "code-url-handler.desktop",
+    "npm_config_viewer": "man",
+    "npm_package_devDependencies__babel_plugin_syntax_dynamic_import": "^7.2.0",
+    "npm_config_offline": "",
+    "npm_config_message": "%s",
+    "npm_config_production": "",
+    "npm_package_devDependencies__babel_preset_react": "^7.0.0",
+    "npm_config_prefer_online": "",
+    "npm_config_link": "",
+    "npm_lifecycle_script": "jest --verbose \"--watch\"",
+    "npm_package_description": "## Reading",
+    "npm_config_shrinkwrap": "true",
+    "npm_package_devDependencies__babel_plugin_proposal_class_properties": "^7.3.3",
+    "npm_config_force": "",
+    "npm_config_rollback": "true",
+    "XDG_SESSION_CLASS": "user",
+    "npm_config_save_bundle": "",
+    "npm_config_onload_script": "",
+    "npm_package_devDependencies__babel_polyfill": "^7.2.5",
+    "TERM": "xterm-256color",
+    "npm_package_name": "5_asyncReact",
+    "ZSH": "/home/ryan/.oh-my-zsh",
+    "SCALA_HOME": "/home/ryan/.sdkman/candidates/scala/current",
+    "npm_config_prefix": "/home/ryan/.npm-global",
+    "npm_config_cert": "",
+    "USER": "ryan",
+    "SDKMAN_CURRENT_API": "https://api.sdkman.io/2",
+    "npm_package_devDependencies_webpack_cli": "^3.2.3",
+    "npm_config_heading": "npm",
+    "npm_package_dependencies_react_dom": "^16.8.2",
+    "npm_package_devDependencies_webpack_dev_server": "^3.1.14",
+    "npm_config_cache_lock_wait": "10000",
+    "npm_config_node_options": "",
+    "npm_config_key": "",
+    "SDKMAN_DIR": "/home/ryan/.sdkman",
+    "npm_config_json": "",
+    "npm_config_depth": "Infinity",
+    "DISPLAY": ":0.0",
+    "npm_lifecycle_event": "test",
+    "SHLVL": "3",
+    "npm_package_devDependencies_eslint": "^5.14.0",
+    "PAGER": "less",
+    "npm_config_ca": "",
+    "npm_config_prefer_offline": "",
+    "QT_IM_MODULE": "ibus",
+    "XDG_VTNR": "2",
+    "DESKTOP_AUTOSTART_ID": "103eb6491011c04a02155034067434574500000010570018",
+    "npm_config_if_present": "",
+    "npm_package_jest_moduleNameMapper____css__": "identity-obj-proxy",
+    "XDG_SESSION_ID": "2",
+    "npm_config_user_agent": "npm/6.7.0 node/v11.10.0 linux x64",
+    "npm_config_save_exact": "",
+    "SDKMAN_LEGACY_API": "https://api.sdkman.io/1",
+    "npm_execpath": "/home/ryan/.n/lib/node_modules/npm/bin/npm-cli.js",
+    "npm_config_progress": "true",
+    "npm_package_devDependencies_babel_eslint": "^10.0.1",
+    "npm_config_global_style": "",
+    "MOZ_PLUGIN_PATH": "/usr/lib/mozilla/plugins",
+    "npm_package_scripts_test": "jest --verbose \"--watch\"",
+    "npm_package_devDependencies_identity_obj_proxy": "^3.0.0",
+    "npm_config_init_author_email": "",
+    "XDG_RUNTIME_DIR": "/run/user/1000",
+    "npm_config_script_shell": "",
+    "npm_config_long": "",
+    "npm_config_save": "true",
+    "npm_config_strict_ssl": "true",
+    "npm_config_auth_type": "legacy",
+    "npm_config_version": "",
+    "npm_config_logs_max": "10",
+    "npm_config_umask": "0022",
+    "npm_config_sso_poll_frequency": "500",
+    "npm_config_searchopts": "",
+    "npm_config_legacy_bundling": "",
+    "LC_ALL": "en_US.UTF-8",
+    "npm_package_devDependencies_url_loader": "^1.1.2",
+    "MAVEN_OPTS": "-Xmx512m",
+    "npm_config_searchlimit": "20",
+    "npm_package_scripts_start": "webpack-dev-server --hot --mode development --devtool eval-source-map",
+    "npm_config_noproxy": "",
+    "PATH": "/home/ryan/.n/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/home/ryan/code/alchemy/winter-2019/classwork/5_asyncReact/node_modules/.bin:/home/ryan/.n/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/home/ryan/code/alchemy/winter-2019/classwork/5_asyncReact/node_modules/.bin:/home/ryan/google-cloud-sdk/bin:/home/ryan/.n/bin:/home/ryan/.npm-global/bin:/home/ryan/.npm-global/bin:/home/ryan/google-cloud-sdk/bin:/home/ryan/.n/bin:/home/ryan/.npm-global/bin:/home/ryan/.sdkman/candidates/scala/current/bin:/home/ryan/.sdkman/candidates/gradle/current/bin:/home/ryan/.npm-global/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/opt/cuda/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ryan/.gem/ruby/2.2.0/bin:/home/ryan/bin:/home/ryan/.rvm/bin/:/home/ryan/go/bin:/usr/local/node/bin:/home/ryan/.rvm/bin:/home/ryan/.gem/ruby/2.4.0/bin:/home/ryan/.gem/ruby/2.2.0/bin:/home/ryan/bin:/home/ryan/.rvm/bin/:/home/ryan/go/bin:/usr/local/node/bin:/home/ryan/.rvm/bin:/home/ryan/.gem/ruby/2.4.0/bin",
+    "npm_config_metrics_registry": "https://registry.npmjs.org/",
+    "npm_config_node_gyp": "/home/ryan/.n/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js",
+    "npm_config_searchexclude": "",
+    "GDMSESSION": "gnome-xorg",
+    "npm_package_devDependencies_eslint_plugin_react": "^7.12.4",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+    "npm_package_license": "ISC",
+    "SDKMAN_PLATFORM": "Linux64",
+    "npm_config_update_notifier": "true",
+    "npm_package_devDependencies_clean_webpack_plugin": "^1.0.1",
+    "MAIL": "/var/spool/mail/ryan",
+    "npm_config_registry": "https://registry.npmjs.org/",
+    "npm_config_ignore_prepublish": "",
+    "npm_config_audit": "true",
+    "npm_config_tag": "latest",
+    "npm_config_scripts_prepend_node_path": "warn-only",
+    "npm_package_devDependencies_eslint_plugin_babel": "^5.3.0",
+    "npm_config_cafile": "",
+    "npm_config_fetch_retry_factor": "10",
+    "GIO_LAUNCHED_DESKTOP_FILE_PID": "1313",
+    "npm_node_execpath": "/home/ryan/.n/bin/node",
+    "npm_config_engine_strict": "",
+    "GIO_LAUNCHED_DESKTOP_FILE": "/home/ryan/.config/autostart/tilda.desktop",
+    "npm_config_https_proxy": "",
+    "npm_package_devDependencies_postcss_loader": "^3.0.0",
+    "OLDPWD": "/home/ryan/code/alchemy/winter-2019/classwork",
+    "GOPATH": "/home/ryan/go",
+    "npm_package_devDependencies_jest": "^24.1.0",
+    "npm_config_scope": "",
+    "npm_config_package_lock": "true",
+    "TERM_PROGRAM": "vscode",
+    "npm_config_parseable": "",
+    "npm_config_init_version": "1.0.0",
+    "NODE_ENV": "test",
+    "JEST_WORKER_ID": "0",
+    "FORCE_COLOR": "1"
+  },
+  "userLimits": {
+    "core_file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "data_seg_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_locked_memory_bytes": {
+      "soft": 67108864,
+      "hard": 67108864
+    },
+    "max_memory_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "open_files": {
+      "soft": 500000,
+      "hard": 500000
+    },
+    "stack_size_bytes": {
+      "soft": 8388608,
+      "hard": "unlimited"
+    },
+    "cpu_time_seconds": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_user_processes": {
+      "soft": 127097,
+      "hard": 127097
+    },
+    "virtual_memory_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    }
+  },
+  "sharedObjects": [
+    "linux-vdso.so.1",
+    "/usr/lib/libdl.so.2",
+    "/usr/lib/librt.so.1",
+    "/usr/lib/libstdc++.so.6",
+    "/usr/lib/libm.so.6",
+    "/usr/lib/libgcc_s.so.1",
+    "/usr/lib/libpthread.so.0",
+    "/usr/lib/libc.so.6",
+    "/lib64/ld-linux-x86-64.so.2"
+  ]
+}

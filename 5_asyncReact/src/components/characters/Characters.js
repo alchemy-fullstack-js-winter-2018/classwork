@@ -38,7 +38,7 @@ export default class Characters extends PureComponent {
   render() {
     const characters = this.state.characters.map(character => {
       return (
-        <Character key={character.name} character={character} />
+        <Character key={character.id} character={character} />
       );
     });
     return (
