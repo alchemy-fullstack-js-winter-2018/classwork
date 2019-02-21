@@ -4,6 +4,14 @@ import { getCharacters } from '../../services/rickAndMortyApi';
 import Character from './Character';
 
 export default class Characters extends PureComponent {
+  static propTypes = {
+    page: PropTypes.number
+  };
+
+  static defaultProps = {
+    page: 1
+  };
+
   state = {
     characters: []
   };
