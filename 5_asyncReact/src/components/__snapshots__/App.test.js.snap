@@ -1,3 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App matches a snapshot 1`] = `<table />`;
+exports[`App matches a snapshot 1`] = `
+Array [
+  <span>
+    1
+     / 
+    1
+  </span>,
+  <table>
+    <tbody />
+  </table>,
+]
+`;

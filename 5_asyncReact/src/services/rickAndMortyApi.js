@@ -1,5 +1,5 @@
-export const getCharacters = () => {
-  return fetch('https://swapi.co/api/people', {
+export const getCharacters = page => {
+  return fetch(`https://swapi.co/api/people?page=${page}`, {
     headers: {
       origin: null
     }

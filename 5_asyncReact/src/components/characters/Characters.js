@@ -5,7 +5,8 @@ import Character from './Character';
 
 export default class Characters extends PureComponent {
   static propTypes = {
-    page: PropTypes.number
+    page: PropTypes.number,
+    updateTotalPages: PropTypes.func.isRequired
   };
 
   static defaultProps = {
@@ -16,11 +17,22 @@ export default class Characters extends PureComponent {
     characters: []
   };
 
-  componentDidMount() {
-    getCharacters()
+  fetchCharacters = () => {
+    getCharacters(this.props.page)
       .then(response => {
+        this.props.updateTotalPages(response.totalPages);
         this.setState({ characters: response.results });
       });
+  };
+
+  componentDidMount() {
+    this.fetchCharacters();
+  }
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.page !== this.props.page) {
+      this.fetchCharacters();
+    }
   }
 
   render() {
