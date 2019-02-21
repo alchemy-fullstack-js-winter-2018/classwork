@@ -569,12 +569,9 @@ const results = [
   }
 ];
 
-const locationsResults = [
-  { name: 'Planet1', type: 'planet', dimension: '4' },
-  { name: 'Planet2', type: 'planet', dimension: '4' },
-  { name: 'Planet3', type: 'planet', dimension: '4' },
-  { name: 'Planet4', type: 'planet', dimension: '4' }
-];
+const locationsResults = [...Array(10)].map((_, i) => {
+  return { id: i, name: `Planet-${i}`, type: 'planet', dimension: '4' };
+});
 
 export const getCharacters = () => {
   return Promise.resolve({

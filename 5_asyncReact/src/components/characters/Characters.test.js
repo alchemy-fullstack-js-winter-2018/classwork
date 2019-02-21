@@ -7,7 +7,7 @@ jest.mock('../../services/rickAndMortyApi.js');
 describe('Characters', () => {
   it('matches a snapshot', () => {
     const tree = renderer.create(
-      <Characters updateTotalPages={jest.fn()} />
+      <Characters results={[]} />
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

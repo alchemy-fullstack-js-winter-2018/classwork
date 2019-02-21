@@ -10,5 +10,13 @@ Array [
   <table>
     <tbody />
   </table>,
+  <span>
+    1
+     / 
+    1
+  </span>,
+  <table>
+    <tbody />
+  </table>,
 ]
 `;
