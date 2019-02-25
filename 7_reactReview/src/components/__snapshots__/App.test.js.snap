@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Has home 1`] = `
+<Fragment>
+  <nav>
+    <Link
+      replace={false}
+      to="/about"
+    >
+      About
+    </Link>
+  </nav>
+</Fragment>
+`;
+
+exports[`App can click 1`] = `
+<App>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Switch />
+    </Router>
+  </BrowserRouter>
+</App>
+`;
