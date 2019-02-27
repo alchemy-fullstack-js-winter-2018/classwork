@@ -5,13 +5,26 @@ import Pizzas from '../../components/pizzas/Pizzas';
 
 export default class AllPizza extends PureComponent {
   state = {
-    pizzas: []
+    pizzas: [],
+    unsubscribe: null
   }
 
-  componentDidMount() {
+  updateState = () => {
     const currentReduxState = store.getState();
     const pizzas = getAllPizzas(currentReduxState)
     this.setState({ pizzas });
+  }
+
+  componentDidMount() {
+    this.updateState();
+    const unsubscribe = store.subscribe(() => {
+      this.updateState();
+    });
+    this.setState({ unsubscribe });
+  }
+
+  componentWillUnmount() {
+    this.state.unsubscribe();
   }
 
   render() {

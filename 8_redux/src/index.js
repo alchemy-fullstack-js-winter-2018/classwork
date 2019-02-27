@@ -37,3 +37,8 @@ render(
 
 // // console.log('pepperoni', pepperoniPizzas(store.getState()));
 // // console.log('small pepperoni', smallPepperoniPizzas(store.getState()));
+
+
+// store.getState() - returns the entire state in the store
+// store.dispatch() - triggers and action or event
+// store.subscribe() - notifies us when state changes
