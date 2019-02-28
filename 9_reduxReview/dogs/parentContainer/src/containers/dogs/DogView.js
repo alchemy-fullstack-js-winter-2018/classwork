@@ -26,7 +26,6 @@ export default class DogView extends PureComponent {
   // listen for state changes and update name, age, weight
   componentDidMount() {
     this.unsubscribe = store.subscribe(() => {
-      console.log('updated')
       const state = store.getState();
       const name = getDogCreateName(state);
       const age = getDogCreateAge(state);
