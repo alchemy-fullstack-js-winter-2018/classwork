@@ -18,7 +18,12 @@ import { getDogs } from '../../selectors/dogs';
 function DogView({ name, age, weight, dogs, onChange, onSubmit }) {
   return (
     <>
-      <AddDogForm name={name} age={age} weight={weight} onChange={onChange} onSubmit={onSubmit} />
+      <AddDogForm
+        name={name}
+        age={age}
+        weight={weight}
+        onChange={onChange}
+        onSubmit={onSubmit.bind(null, name, age, weight)} />
       <Dogs dogs={dogs} />
     </>
   )
@@ -32,7 +37,7 @@ const mapStateToProps = (state, props) => ({
   dogs: getDogs(state)
 });
 
-const mapDispatchToProps = (dispatch, props) => ({
+const mapDispatchToProps = dispatch => ({
   onChange({ target }) {
     const factoryMethod = {
       name: updateName,
@@ -42,9 +47,8 @@ const mapDispatchToProps = (dispatch, props) => ({
 
     dispatch(factoryMethod[target.name](target.value))
   },
-  onSubmit(event) {
+  onSubmit(name, age, weight, event) {
     event.preventDefault();
-    const { name, age, weight } = props;
     dispatch(addDog({ name, age, weight }));
   }
 });
