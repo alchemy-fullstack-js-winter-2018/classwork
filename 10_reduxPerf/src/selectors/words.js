@@ -1,3 +1,9 @@
+export const getWords = state => state.words.dictionary;
+
+export const getFirstWords = (state, count) => {
+  return getWords(state).slice(0, count);
+};
+
 function selectorPerformance(fn) {
   const start = performance.now();
   const results = fn();
