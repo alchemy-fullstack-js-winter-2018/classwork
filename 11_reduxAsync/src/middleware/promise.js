@@ -2,16 +2,24 @@ export const isPromise = payload => {
   return Promise.resolve(payload) === payload;
 };
 
-export const LOAD_START = 'LOAD_START';
-export const LOAD_END = 'LOAD_END';
-export const PROMISE_ERROR = 'PROMISE_ERROR';
+export const PENDING = 'PENDING';
+export const FULFILLED = 'FULFILLED';
+export const REJECTED = 'REJECTED';
+
+export const createAction = (type, promise) => ({
+  type,
+  payload: promise,
+  pendingType: `${type}_${PENDING}`,
+  fulfilledType: `${type}_${FULFILLED}`,
+  rejectedType: `${type}_${REJECTED}`
+});
 
 export const promiseMiddleware = ({ dispatch }) => next => action => {
   const {
     type,
-    loadStart = LOAD_START,
-    loadEnd = LOAD_END,
-    errorType = PROMISE_ERROR
+    pendingType = PENDING,
+    fulfilledType = FULFILLED,
+    rejectedType = REJECTED
   } = action;
   // check if action.payload is a promise
   if(!isPromise(action.payload)) {
@@ -20,7 +28,7 @@ export const promiseMiddleware = ({ dispatch }) => next => action => {
   }
   // -> if it is a promise
   // -> -> dispatch a LOAD_START action
-  dispatch({ type: loadStart });
+  dispatch({ type: pendingType });
   // -> -> wait for promise to resolve
   action.payload.then(payload => {
     // -> -> -> dispatch original action with results
@@ -29,14 +37,13 @@ export const promiseMiddleware = ({ dispatch }) => next => action => {
       payload
     });
     // -> -> -> dispatch LOAD_END action
-    dispatch({ type: loadEnd });
+    dispatch({ type: fulfilledType });
   })
     .catch(err => {
       // -> -> on error dispatch PROMISE_ERROR action
       dispatch({
-        type: errorType,
+        type: rejectedType,
         payload: err
       });
-      dispatch({ type: loadEnd });
     });
 };
