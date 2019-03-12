@@ -25,7 +25,7 @@
 * User Stories
   * Feature requests / functionality
   * Keep focus on the user
-  * As a < type of user >, I want < some goal > so that < some reason >.
+  * `As a < type of user >, I want < some goal > so that < some reason >.`
 * User Scenarios
   * How a user interacts?
   * Steps to accomplish some goal
@@ -46,10 +46,10 @@
   * css modules
   * styled-components
   * media queries
+* Responsive Images with cloudinary
 * Transitions and Animations
   * `transition`
   * `animation`
-* Responsive Images with cloudinary
 * Auth0
 * Netlify
 * Back-end review

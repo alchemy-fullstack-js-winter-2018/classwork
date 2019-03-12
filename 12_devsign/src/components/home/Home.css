@@ -1,0 +1,13 @@
+.Home {
+  padding: 1em;
+  figure {
+    width: 100%;
+    margin: auto;
+  }
+
+  img {
+    width: 50%;
+    margin: auto;
+    display: block;
+  }
+}
