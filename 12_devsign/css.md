@@ -27,19 +27,18 @@
     * `:active`
     * `:focus`
     * `:nth-child`
-    * `:is`
   * Pseudo elements
     * `::before`
     * `::after`
     * `::selection`
-    * `:first-letter`
+    * `::first-letter`
     * `::first-line`
 * Typography
-  * font-size
-  * font-weight
-  * font-style
-  * line-height
-  * font-family
+  * `font-size`
+  * `font-weight`
+  * `font-style`
+  * `line-height`
+  * `font-family`
 * Colors
   * names
   * hex
