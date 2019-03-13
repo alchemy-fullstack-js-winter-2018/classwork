@@ -7,7 +7,7 @@ function Avatar({ user, className }) {
   const { handle, profileImg } = user;
   return (
     <figure className={className}>
-      <img src={getImageUrl(profileImg, ['fl_region_relative,g_adv_eyes,l_glasses,w_1.7'])} />
+      <img src={getImageUrl(profileImg, ['w_250'])} />
       <figcaption>{handle}</figcaption>
     </figure>
   );
