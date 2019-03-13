@@ -1,20 +1,12 @@
-import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { fetchTweets } from '../../actions/tweets';
+import { withFetch } from '../../components/withFetch';
 import Tweets from '../../components/tweets/Tweets';
-
-class PopularTweets extends PureComponent {
-  componentDidMount() {
-    this.props.fetch();
-  }
-
-  render() {
-    return <Tweets {...this.props} />;
-  }
-}
+import { getTweets, isTweetsLoading } from '../../selectors/tweets';
 
 const mapStateToProps = state => ({
-  tweets: state.tweets.tweets // use a selector though
+  tweets: getTweets(state),
+  loading: isTweetsLoading(state)
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -26,4 +18,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PopularTweets);
+)(withFetch(Tweets));
