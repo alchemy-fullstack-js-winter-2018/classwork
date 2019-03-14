@@ -17,7 +17,7 @@ export const withSession = Component => {
     }
 
     render() {
-      if(!this.props.token) return <h1>Not logged in</h1>;
+      if(!this.props.token) return <h1>LOADING SCREEN</h1>;
 
       return <Component {...this.props} />;
     }

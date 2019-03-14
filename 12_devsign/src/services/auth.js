@@ -12,10 +12,6 @@ export const login = () => {
   return auth0.authorize();
 };
 
-export const logout = () => {
-  return auth0.logout();
-};
-
 export const handleAuth = () => {
   // return auth0.parseHash()
   //   .then(accessToken => auth0.client.userInfo(accessToken))
