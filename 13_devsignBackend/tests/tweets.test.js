@@ -7,6 +7,8 @@ const seedData = require('./seedData');
 const request = require('supertest');
 const app = require('../lib/app');
 
+jest.mock('../lib/services/auth.js');
+
 describe('tweets routes', () => {
   beforeEach(() => {
     return seedData(1000);

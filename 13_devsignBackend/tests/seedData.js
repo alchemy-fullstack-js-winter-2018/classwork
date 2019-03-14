@@ -3,7 +3,7 @@ const chance = require('chance').Chance();
 
 function seedData(count = 100) {
   const tweetsToCreate = [...Array(count)].map(() => ({
-    user: chance.name(),
+    user: 'auth0|5c00b0cde9f0262e937842c9',
     text: chance.sentence()
   }));
 
