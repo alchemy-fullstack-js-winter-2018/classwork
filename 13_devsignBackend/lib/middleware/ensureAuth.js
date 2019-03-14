@@ -1,9 +1,12 @@
-const jwt = require('express');
+const jwt = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
 
 module.exports = () => {
+  if(process.env.NODE_ENV === 'test') {
+    return (req, res, next) => next();
+  }
+
   return jwt({
-    skip: process.env.NODE_ENV === 'test',
     secret: jwksRsa({
       cache: true,
       rateLimit: true,
