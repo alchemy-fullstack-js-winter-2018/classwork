@@ -1,6 +1,6 @@
 import reducer from './session';
 
-jest.mock('../services/auth.js', () => ({}));
+jest.mock('../services/auth.js');
 
 describe('session reducer', () => {
   it('handles SET_SESSION', () => {

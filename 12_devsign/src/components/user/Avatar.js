@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import { getImageUrl } from '../../services/image';
 
 function Avatar({ user, className }) {
-  const { handle, profileImg } = user;
+  const { handle, picture } = user;
   return (
     <figure className={className}>
-      <img alt={`profile image for ${handle}`} src={getImageUrl(profileImg, ['w_250'])} />
+      <img alt={`profile image for ${handle}`} src={getImageUrl(picture, ['w_250'])} />
       <figcaption>{handle}</figcaption>
     </figure>
   );

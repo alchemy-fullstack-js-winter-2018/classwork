@@ -2,11 +2,12 @@ import { connect } from 'react-redux';
 import { fetchTweets } from '../../actions/tweets';
 import { withFetch } from '../../components/withFetch';
 import Tweets from '../../components/tweets/Tweets';
-import { getTweets, isTweetsLoading } from '../../selectors/tweets';
+import { getTweets, isTweetsLoading, getTweetsError } from '../../selectors/tweets';
 
 const mapStateToProps = state => ({
   tweets: getTweets(state),
-  loading: isTweetsLoading(state)
+  loading: isTweetsLoading(state),
+  error: getTweetsError(state)
 });
 
 const mapDispatchToProps = dispatch => ({

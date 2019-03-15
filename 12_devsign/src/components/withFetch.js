@@ -5,7 +5,8 @@ export const withFetch = Component => {
   class WithFetch extends PureComponent {
     static propTypes = {
       loading: PropTypes.bool,
-      fetch: PropTypes.func.isRequired
+      fetch: PropTypes.func.isRequired,
+      error: PropTypes.object
     };
 
     static defaultProps = {
@@ -18,7 +19,12 @@ export const withFetch = Component => {
 
     render() {
       if(this.props.loading) return <h1>LOADING</h1>;
-      return <Component {...this.props} />;
+      return (
+        <>
+          {this.props.error && <h1>ERROR</h1>}
+          <Component {...this.props} />;
+        </>
+      );
     }
   }
 
