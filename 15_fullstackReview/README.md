@@ -2,6 +2,10 @@
 
 ## Agenda
 
+* 1 hour finish twitter clone
+* Full-stack review
+* 3-4 hours full-stack practice
+
 ## Basic Setup
 
 * scaffold back-end
