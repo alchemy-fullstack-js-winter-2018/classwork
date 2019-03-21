@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import NoteForm from './components/NoteForm';
 import { addNote } from './actions/notes';
 import { ConnectedNotes } from './components/Notes';
-import { ConnectedNote } from './components/NoteDetails';
 
 class App extends Component {
 
@@ -14,7 +13,8 @@ class App extends Component {
   render() {
     return (
       <>
-        <ConnectedNote id="8qdMHIBf90WVPvxzdZPQ" />
+        <NoteForm handleSubmit={this.handleSubmit} />
+        <ConnectedNotes />
       </>
     );
   }

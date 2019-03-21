@@ -18,9 +18,7 @@ export const connectFirestore = mapFirestoreToProps => Component => {
 
     componentWillMount() {
       const mapObject = mapFirestoreToProps(firestore, this.props)
-      console.log('mapObject', mapObject)
       this.unsubscribe = Object.keys(mapObject).map(dataKey => {
-        console.log('dataKey', dataKey)
         const ref = mapObject[dataKey]
         return this.subscribe(ref, dataKey)
       });
