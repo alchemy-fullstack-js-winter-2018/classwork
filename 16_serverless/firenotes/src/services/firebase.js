@@ -1,13 +1,14 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
+import 'firebase/auth'
 
 firebase.initializeApp({
-  apiKey: "AIzaSyCowkfBDO-kM34LcE7l8w-xHYVT2uQMXbY",
-  authDomain: "firenotes-2b948.firebaseapp.com",
-  databaseURL: "https://firenotes-2b948.firebaseio.com",
-  projectId: "firenotes-2b948",
-  storageBucket: "firenotes-2b948.appspot.com",
-  messagingSenderId: "563943298982"
+  apiKey: "AIzaSyCOVhGsn4an1ZWh1f0Lh2-c_dkMgeQZQtg",
+  authDomain: "alchemy-serverless.firebaseapp.com",
+  databaseURL: "https://alchemy-serverless.firebaseio.com",
+  projectId: "alchemy-serverless",
+  storageBucket: "alchemy-serverless.appspot.com",
+  messagingSenderId: "1009114248651"
 })
 
 export const app = firebase
@@ -15,3 +16,14 @@ export const app = firebase
 export const firestore = app.firestore()
 
 export const notesCollection = firestore.collection('notes')
+
+const provider = new firebase.auth.GithubAuthProvider()
+
+export const subscribe = fn => firebase.auth().onAuthStateChanged(user => {
+  console.log(user)
+  if (user) {
+    fn(user)
+  } else {
+    firebase.auth().signInWithRedirect(provider)
+  }
+})
