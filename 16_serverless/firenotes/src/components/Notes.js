@@ -19,6 +19,10 @@ export default function Notes({ notes }) {
   )
 }
 
+const mapFirestoreToProps = firestore => ({
+  notes: firestore.collection('notes')
+})
+
 export const ConnectedNotes = connectFirestore(
-  notesCollection, 'notes'
+  mapFirestoreToProps
 )(Notes)

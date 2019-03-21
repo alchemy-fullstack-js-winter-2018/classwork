@@ -1,29 +1,37 @@
 import React from 'react'
-import { app, notesCollection } from '../services/firebase';
+import { app, firestore } from '../services/firebase';
 
-export const connectFirestore = (ref, key = 'data') => Component => {
+export const connectFirestore = mapFirestoreToProps => Component => {
   class ConnectFirestore extends React.PureComponent {
-    state = {
-      data: null
-    }
+    state = {}
 
-    componentWillMount() {
-      this.unsubscribe = notesCollection.onSnapshot(snap => {
+    subscribe = (ref, dataKey) => {
+      return ref.onSnapshot(snap => {
         if (snap instanceof app.firestore.DocumentSnapshot) {
-          this.setState({ data: { ...snap.data(), id: snap.id } })
+          this.setState({ [dataKey]: { ...snap.data(), id: snap.id } })
         } else if (snap instanceof app.firestore.QuerySnapshot) {
           const data = snap.docs.map(doc => ({ ...doc.data(), id: doc.id }))
-          this.setState({ data })
+          this.setState({ [dataKey]: data })
         }
       })
     }
 
+    componentWillMount() {
+      const mapObject = mapFirestoreToProps(firestore, this.props)
+      console.log('mapObject', mapObject)
+      this.unsubscribe = Object.keys(mapObject).map(dataKey => {
+        console.log('dataKey', dataKey)
+        const ref = mapObject[dataKey]
+        return this.subscribe(ref, dataKey)
+      });
+    }
+
     componentWillUnmount() {
-      this.unsubscribe && this.unsubscribe()
+      this.unsubscribe && this.unsubscribe.map(u => u())
     }
 
     render() {
-      const props = { ...this.props, [key]: this.state.data };
+      const props = { ...this.props, ...this.state };
       return (
         <Component {...props} />
       )
