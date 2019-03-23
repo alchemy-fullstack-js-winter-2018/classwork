@@ -18,6 +18,7 @@ export const handleAuth = () => {
     auth0.parseHash((err, result) => {
       if(result && result.accessToken && result.idToken) {
         return auth0.client.userInfo(result.accessToken, (err, profile) => {
+          console.log(profile);
           return resolve({
             token: result.idToken,
             id: profile.sub,
